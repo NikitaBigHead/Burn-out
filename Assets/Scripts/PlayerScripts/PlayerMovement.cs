@@ -18,6 +18,6 @@ public class PlayerMovement : MonoBehaviour
     {
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
-        rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+        rb.MovePosition(rb.position + direction.normalized * speed * Time.deltaTime);
     }
 }
