@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public float timeAttack = 0.5f;
     //public Animator animator;
     public float offset;//смещение связанное с мышью
     public bool isAttacked = false;
@@ -42,21 +43,33 @@ public class Attack : MonoBehaviour
     {
         if(isAttacked)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 2f); 
-            for(int i = 0;i< colliders.Length;i++) {
-                if (colliders[i].tag == "Enemy")
-                {
-                    colliders[i].GetComponent<AttackableEntity>().RecieveDamage(damage);
-                }
-                if (colliders[i].tag == "Rock")
-                {
-                    SimpleProjectile  rock = colliders[i].GetComponent<SimpleProjectile>();
-                    rock.direction = new Vector2(-rock.direction.x,-rock.direction.y);
-                    rock.range = rock.cashRange;
-                }
-            }
+            collider.enabled = true;
             isAttacked= false;
+            Invoke("disableCollider", timeAttack);
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<AttackableEntity>().RecieveDamage(damage);
+        }
+        if (collision.gameObject.tag == "Rock")
+        {
+            SimpleProjectile rock = collision.gameObject.GetComponent<SimpleProjectile>();
+            rock.direction = new Vector2(-rock.direction.x, -rock.direction.y);
+            rock.range = rock.cashRange;
+            rock.isPLayerRecaptured = true;
+        }
+
+        
+
+    }
+
+    private void disableCollider()
+    {
+        collider.enabled = false;
     }
 
 }

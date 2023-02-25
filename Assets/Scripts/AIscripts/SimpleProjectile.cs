@@ -8,9 +8,10 @@ public class SimpleProjectile : MonoBehaviour
     public float size = 1.0f;
     public float range = 1.0f;
     public Vector2 direction = Vector2.zero;
-
+    public float damage = 5f;
     public float cashRange; 
 
+    public bool isPLayerRecaptured = false;
     public void Launch(float speed, float size, float range, Vector2 direction)
     {
         this.speed = speed;
@@ -32,4 +33,20 @@ public class SimpleProjectile : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        AttackableEntity attackableEntity = collision.GetComponent<AttackableEntity>();
+        if (collision.tag == "Player")
+        {
+            attackableEntity.RecieveDamage(damage);
+            Destroy(this.gameObject);
+        }
+        else if (collision.tag == "Enemy" && isPLayerRecaptured)
+        {
+            attackableEntity.RecieveDamage(damage);
+            Destroy(this.gameObject);
+        }
+        
+    }
+        
 }
