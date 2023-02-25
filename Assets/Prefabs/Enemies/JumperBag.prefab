@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 8651641254654120266}
   - component: {fileID: -717880077327402695}
   - component: {fileID: 1567286448643631614}
-  - component: {fileID: 7703143962633456477}
   - component: {fileID: 7860897835342504558}
+  - component: {fileID: 7086097609483081990}
   m_Layer: 0
   m_Name: JumperBag
   m_TagString: Enemy
@@ -194,25 +194,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7703143962633456477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8651641254654120277}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a37ca3931052084db12c932f52cb31e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  size: 1
-  range: 1
-  direction: {x: 0, y: 0}
-  damage: 5
-  cashRange: 0
-  isPLayerRecaptured: 0
 --- !u!58 &7860897835342504558
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -229,3 +210,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &7086097609483081990
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8651641254654120277}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

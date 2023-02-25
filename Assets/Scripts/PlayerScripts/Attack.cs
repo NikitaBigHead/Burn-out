@@ -6,6 +6,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public float timeAttack = 0.5f;
+    public float delayAttack;
     //public Animator animator;
     public float offset;//смещение связанное с мышью
     public bool isAttacked = false;
@@ -13,6 +14,7 @@ public class Attack : MonoBehaviour
     public SpriteRenderer spriteRendererPan;
 
     private Collider2D collider;
+    private bool isCanAttack = true;
     private void Awake()
     {
         collider= GetComponent<Collider2D>();
@@ -32,7 +34,7 @@ public class Attack : MonoBehaviour
             spriteRendererPan.sortingOrder = 4;
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && isCanAttack)
         {
             
             isAttacked = true;
@@ -43,6 +45,9 @@ public class Attack : MonoBehaviour
     {
         if(isAttacked)
         {
+            spriteRendererPan.color = Color.red;
+
+            isCanAttack= false;
             collider.enabled = true;
             isAttacked= false;
             Invoke("disableCollider", timeAttack);
@@ -58,7 +63,15 @@ public class Attack : MonoBehaviour
 
     private void disableCollider()
     {
+        spriteRendererPan.color = Color.gray;
+
         collider.enabled = false;
+        Invoke("enableAttack",delayAttack);
+    }
+    private void enableAttack()
+    {
+        spriteRendererPan.color = Color.white;
+        isCanAttack = true;
     }
 
 }

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeAttack: 0.5
+  delayAttack: 0
   offset: 90
   isAttacked: 0
   damage: 10
@@ -292,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeAttack: 0.5
+  delayAttack: 1
   offset: 90
   isAttacked: 0
   damage: 10
