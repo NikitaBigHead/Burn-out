@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 0.1f;
 
     public Vector2 direction;
     private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        if (PlayerData.prefab == null) PlayerData.prefab = this.gameObject;
+    }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        direction.x = Input.GetAxis("Horizontal");
-        direction.y = Input.GetAxis("Vertical");
-        rb.MovePosition(rb.position + direction.normalized * speed * Time.deltaTime);
+        direction.x = Input.GetAxisRaw("Horizontal");
+        direction.y = Input.GetAxisRaw("Vertical");
+    }
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + direction.normalized*speed);
+          
     }
 }

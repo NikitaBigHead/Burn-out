@@ -9,6 +9,7 @@ public class AttackableEntity : MonoBehaviour
 
     private bool invincible = false;
 
+    
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (!invincible)
