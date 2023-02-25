@@ -50,7 +50,9 @@ public class Attack : MonoBehaviour
                 }
                 if (colliders[i].tag == "Rock")
                 {
-
+                    SimpleProjectile  rock = colliders[i].GetComponent<SimpleProjectile>();
+                    rock.direction = new Vector2(-rock.direction.x,-rock.direction.y);
+                    rock.range = rock.cashRange;
                 }
             }
             isAttacked= false;

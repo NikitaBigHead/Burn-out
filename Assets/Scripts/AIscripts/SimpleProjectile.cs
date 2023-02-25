@@ -9,13 +9,17 @@ public class SimpleProjectile : MonoBehaviour
     public float range = 1.0f;
     public Vector2 direction = Vector2.zero;
 
+    public float cashRange; 
+
     public void Launch(float speed, float size, float range, Vector2 direction)
     {
         this.speed = speed;
         this.size = size;
         transform.localScale = new Vector3(size, size, 1.0f);
+        this.cashRange = range;
         this.range = range;
         this.direction = direction;
+
     }
 
     protected void FixedUpdate()
