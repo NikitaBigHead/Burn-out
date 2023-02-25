@@ -26,6 +26,12 @@ public class JumperAi : MonoBehaviour
     private bool canJump = true;
     private bool targetExist = false;
 
+
+
+    public float projectileSize = 1f;
+    public float projectileSpeed = 0.2f;
+    public float projectileRange = 10f;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -87,5 +93,17 @@ public class JumperAi : MonoBehaviour
     private void ResetJump()
     {
         canJump = true;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Bag")
+        {
+            //this.gameObject.GetComponent<JumperAi>().enabled = false;
+            SimpleProjectile  projectile= this.gameObject.GetComponent<SimpleProjectile>();
+            projectile.enabled = true;
+
+            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            projectile.Launch(projectileSpeed, projectileSize, projectileRange, direction); ;
+        }
     }
 }

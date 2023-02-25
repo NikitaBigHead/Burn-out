@@ -54,18 +54,6 @@ public class Attack : MonoBehaviour
         {
             collision.gameObject.GetComponent<AttackableEntity>().RecieveDamage(damage);
         }
-        /*
-        if (collision.gameObject.tag == "Rock")
-        {
-            SimpleProjectile rock = collision.gameObject.GetComponent<SimpleProjectile>();
-            rock.direction = new Vector2(-rock.direction.x, -rock.direction.y);
-            rock.range = rock.cashRange;
-            rock.isPLayerRecaptured = true;
-        }
-        */
-
-        
-
     }
 
     private void disableCollider()
