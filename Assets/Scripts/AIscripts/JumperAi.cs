@@ -29,7 +29,7 @@ public class JumperAi : MonoBehaviour
 
 
     public float projectileSize = 1f;
-    public float projectileSpeed = 0.2f;
+    public float projectileSpeed = 0.1f;
     public float projectileRange = 10f;
 
     private void Awake()
@@ -94,16 +94,19 @@ public class JumperAi : MonoBehaviour
     {
         canJump = true;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Bag")
+        if (collision.gameObject.tag == "Bag")
         {
-            //this.gameObject.GetComponent<JumperAi>().enabled = false;
-            SimpleProjectile  projectile= this.gameObject.GetComponent<SimpleProjectile>();
+
+            this.gameObject.GetComponent<JumperAi>().enabled = false;
+            SimpleProjectile projectile = this.gameObject.GetComponent<SimpleProjectile>();
             projectile.enabled = true;
 
-            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            projectile.Launch(projectileSpeed, projectileSize, projectileRange, direction); ;
+            Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
+            projectile.Launch(projectileSpeed, projectileSize, projectileRange, direction);
+            projectile.isPLayerRecaptured = true;
         }
     }
+
 }
