@@ -50,11 +50,11 @@ public class Attack : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<AttackableEntity>().RecieveDamage(damage);
         }
+        /*
         if (collision.gameObject.tag == "Rock")
         {
             SimpleProjectile rock = collision.gameObject.GetComponent<SimpleProjectile>();
@@ -62,6 +62,7 @@ public class Attack : MonoBehaviour
             rock.range = rock.cashRange;
             rock.isPLayerRecaptured = true;
         }
+        */
 
         
 

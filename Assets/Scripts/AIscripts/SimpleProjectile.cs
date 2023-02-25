@@ -36,6 +36,7 @@ public class SimpleProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         AttackableEntity attackableEntity = collision.GetComponent<AttackableEntity>();
+
         if (collision.tag == "Player")
         {
             attackableEntity.RecieveDamage(damage);
@@ -45,6 +46,13 @@ public class SimpleProjectile : MonoBehaviour
         {
             attackableEntity.RecieveDamage(damage);
             Destroy(this.gameObject);
+        }
+        else if (collision.tag == "Pan")
+        {
+            direction = new Vector2(-direction.x, -direction.y);
+            range = cashRange;
+            isPLayerRecaptured = true;
+
         }
         
     }
