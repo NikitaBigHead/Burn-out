@@ -7,14 +7,20 @@ public class Attack : MonoBehaviour
 {
     public float timeAttack = 0.5f;
     public float delayAttack;
+
     //public Animator animator;
     public float offset;//смещение связанное с мышью
+
     public bool isAttacked = false;
     public float damage = 10f;
+    public float enemyFlightTime = 0.5f;
+    public float forceAttack = 50f;
+
     public SpriteRenderer spriteRendererPan;
 
     private Collider2D collider;
     private bool isCanAttack = true;
+
     private void Awake()
     {
         collider= GetComponent<Collider2D>();
@@ -58,6 +64,14 @@ public class Attack : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<AttackableEntity>().RecieveDamage(damage);
+            if(collision.gameObject.name!= "JumperBag(Clone)")
+            {
+                Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - 
+                    collision.gameObject.transform.position).normalized;
+                Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+                rb.AddForce(direction * forceAttack);
+                StartCoroutine( stopGameObject(rb));
+            }
         }
     }
 
@@ -72,6 +86,12 @@ public class Attack : MonoBehaviour
     {
         spriteRendererPan.color = Color.white;
         isCanAttack = true;
+    }
+    
+    IEnumerator stopGameObject(Rigidbody2D rb)
+    {
+        rb.velocity = Vector2.zero;
+        yield return new  WaitForSeconds(enemyFlightTime);
     }
 
 }

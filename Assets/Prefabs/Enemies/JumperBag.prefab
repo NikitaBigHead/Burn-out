@@ -162,7 +162,7 @@ MonoBehaviour:
   jumpLength: 1.8
   targetsBeforePlayer: 2
   projectileSize: 1
-  projectileSpeed: 0.1
+  projectileSpeed: 1.5
   projectileRange: 10
 --- !u!114 &-717880077327402695
 MonoBehaviour:

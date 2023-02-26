@@ -51,6 +51,8 @@ MonoBehaviour:
   offset: 90
   isAttacked: 0
   damage: 10
+  enemyFlightTime: 0.5
+  forceAttack: 50
   spriteRendererPan: {fileID: 1430387052}
 --- !u!61 &371782530
 BoxCollider2D:
@@ -297,6 +299,8 @@ MonoBehaviour:
   offset: 90
   isAttacked: 0
   damage: 10
+  enemyFlightTime: 3
+  forceAttack: 200
   spriteRendererPan: {fileID: 1052085062}
 --- !u!61 &1812541007
 BoxCollider2D:

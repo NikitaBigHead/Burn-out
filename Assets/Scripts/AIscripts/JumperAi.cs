@@ -29,7 +29,7 @@ public class JumperAi : MonoBehaviour
 
 
     public float projectileSize = 1f;
-    public float projectileSpeed = 0.2f;
+    public float projectileSpeed = 1f;
     public float projectileRange = 10f;
 
     private void Awake()
@@ -103,7 +103,7 @@ public class JumperAi : MonoBehaviour
             SimpleProjectile projectile = this.gameObject.AddComponent<SimpleProjectile>();
 
             Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-            projectile.Launch(1, projectileSize, projectileRange, direction);
+            projectile.Launch(projectileSpeed, projectileSize, projectileRange, direction);
             projectile.isPLayerRecaptured = true;
         }
     }
