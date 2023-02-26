@@ -6,8 +6,12 @@ using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour
 {
     public string Scene;
+
+    public bool open = true;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SceneManager.LoadScene(Scene);
+        if (open)
+            SceneManager.LoadScene(Scene);
     }
 }
