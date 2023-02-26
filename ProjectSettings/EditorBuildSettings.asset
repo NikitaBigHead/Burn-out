@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5f24be1b1b23c1a488ed1c8b70db22b2
+  - enabled: 1
     path: Assets/Scenes/StartLocation.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -14,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/\u0421orralLocation.unity"
     guid: 1b7116c67e6719e41b8dd9b13ff24d99
+  - enabled: 1
+    path: Assets/Scenes/CastleLocation.unity
+    guid: eb1e9c94276236d4e99c85255422e6df
+  - enabled: 1
+    path: Assets/Scenes/Barnlocation.unity
+    guid: 99d10c29c2c15dc49a7c2f7855905e36
   m_configObjects: {}

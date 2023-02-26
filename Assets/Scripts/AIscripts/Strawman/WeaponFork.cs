@@ -46,7 +46,6 @@ public class WeaponFork : MonoBehaviour
             Vector2 movement = direction * attackSpeed;
             transform.localPosition += new Vector3(movement.x, movement.y, 0);
             currentPos += movement.magnitude;
-            Debug.Log(currentPos);
             yield return new WaitForFixedUpdate();
         }
         hitbox.enabled = false;
