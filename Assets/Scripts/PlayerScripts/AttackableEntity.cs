@@ -9,25 +9,24 @@ public class AttackableEntity : MonoBehaviour
 
     private bool invincible = false;
 
-    
-    private void OnCollisionStay2D(Collision2D collision)
+    private OnDamageReceive onDamageReceive;
+
+    private void Start()
     {
-        if (!invincible)
-        {
-            DamageSource damageSource = collision.gameObject.GetComponent<DamageSource>();
-            if (damageSource != null)
-            {
-                RecieveDamage(damageSource.damage);
-            }
-        }
+        onDamageReceive = gameObject.GetComponent<OnDamageReceive>();
+        if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<OnDamageReceive>();
     }
 
     public void RecieveDamage(float value)
     {
-        health -= value;
-        if (health <= 0) OnDie();
-        this.invincible = true;
-        Invoke("InvincibilityEnd", invincibilityDelay);
+        if (!invincible)
+        {
+            this.invincible = true;
+            onDamageReceive.OnHit(invincibilityDelay);
+            health -= value;
+            if (health <= 0) OnDie();
+            Invoke("InvincibilityEnd", invincibilityDelay);
+        }
     }
 
     public void RecieveHeal(float value)
@@ -43,5 +42,6 @@ public class AttackableEntity : MonoBehaviour
     void InvincibilityEnd()
     {
         invincible = false;
+        onDamageReceive.Stop();
     }
 }
