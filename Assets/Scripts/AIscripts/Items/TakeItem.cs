@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class TakeItem : MonoBehaviour
 {
     public string text = "[E] подобрать";
     public string keyItem;
+    public string id;
     private TextMeshProUGUI hint;
     private GameObject player;
+    private SetitemsUI setItem;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        setItem = GameObject.FindGameObjectWithTag("UI").GetComponent<SetitemsUI>();
 
-        Debug.Log(player.GetComponent<PlayerGameObjectHolder>().gameObjects[0]);
-        Debug.Log(player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent< TextMeshProUGUI > ());
         hint = player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
         //panel = GameObject.FindGameObjectWithTag("Hint");
 
@@ -46,7 +49,11 @@ public class TakeItem : MonoBehaviour
             {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("take it");
+                Item item = new Item(keyItem, id);
+                PlayerData.listKey = item;
+                setItem.addItem(item);
+
+                StopCoroutine(waitPlayerDecide());
                 Destroy(this.gameObject);
                 break;
             }

@@ -5,7 +5,8 @@ using UnityEngine;
 public static class PlayerData 
 {
     private static GameObject prefabName;
-
+    //private static List<string> list;
+    private static List<Item> list;
     public static GameObject prefab
     {
         get
@@ -16,5 +17,32 @@ public static class PlayerData
         {
             prefabName = value;
         }
+    }
+    
+    public static Item listKey
+    {
+        set
+        {
+            list.Add(value);
+        }
+    }
+    public static List<Item> getListKey
+    {
+        get
+        {
+            return list;
+        }
+    }
+    
+
+}
+public class Item
+{
+    public string id ;
+    public string key;
+    public Item(string key,string id)
+    {
+        this.key = key;
+        this.id = id;
     }
 }
