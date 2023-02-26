@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2202819422395461569}
   - component: {fileID: 2202819422395461570}
   - component: {fileID: 2202819422395461571}
+  - component: {fileID: 703681624}
   m_Layer: 0
   m_Name: StrawmanRanger
   m_TagString: Enemy
@@ -202,3 +203,17 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &703681624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202819422395461573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e26222303e14d04fa65c268883d35b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 2202819422395461569}

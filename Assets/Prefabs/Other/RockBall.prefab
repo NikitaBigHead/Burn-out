@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockBall
       objectReference: {fileID: 0}
+    - target: {fileID: 4692130171961837757, guid: 15c2b1ff16b785b479bcb9b7fbb91d4b, type: 3}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
     - target: {fileID: 4692130172113439499, guid: 15c2b1ff16b785b479bcb9b7fbb91d4b, type: 3}
       propertyPath: m_Color.b
       value: 0.20517382

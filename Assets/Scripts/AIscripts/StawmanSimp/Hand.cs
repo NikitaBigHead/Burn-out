@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    public Transform hand2;
+    public float handDif = 1f;
+
     public float attackDelay = 0.8f;
     public float damage = 10f;
     public float attackSpeed = 3f;
@@ -43,7 +46,10 @@ public class Hand : MonoBehaviour
         endAnglePosHit = angle;
 
         currentAngle = endAnglePosHit + hitAngle;
+
         transform.rotation = Quaternion.Euler(0f, 0f, currentAngle * Mathf.Rad2Deg);
+        hand2.rotation = Quaternion.Euler(0f, 0f, (currentAngle + handDif) * Mathf.Rad2Deg); 
+
         //transform.Rotate(0f, 0f, currentAngle);
 
         hitbox.enabled = true;
@@ -57,6 +63,7 @@ public class Hand : MonoBehaviour
             float difAngle = attackSpeed;
             //transform.rotation = Quaternion.Euler(0f, 0f, currentAngle * Mathf.Rad2Deg);
             transform.Rotate(new Vector3(0f, 0f, difAngle));
+            hand2.Rotate(new Vector3(0f, 0f, difAngle));
             currentAngle -= difAngle;
             yield return new WaitForFixedUpdate();
         }
@@ -64,6 +71,9 @@ public class Hand : MonoBehaviour
         hitbox.enabled = false;
         transform.localPosition = defaultPos;
         transform.rotation = defaultRot;
+
+        hand2.localPosition = defaultPos;
+        hand2.rotation = defaultRot;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
