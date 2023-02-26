@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponFork : MonoBehaviour
+public class WeaponFork : Weapon
 {
-    public float attackDelay = 1.5f;
-    public float attackRange = 3;
-    public float attackSpeed = 0.3f;
+    //public float attackDelay = 1.5f;
+    public float attackRange = 2;
+    public float attackSpeed = 0.1f;
 
-    public float offset = 1.8f;
+    public float offset = 0f;
 
     private float currentPos = 0f;
 
@@ -27,7 +27,7 @@ public class WeaponFork : MonoBehaviour
         hitbox.enabled = false;
     }
 
-    public float PerformAttack(Vector2 direction)
+    public override float PerformAttack(Vector2 direction)
     {
         this.direction = direction;
         float angle = Mathf.Atan2(direction.y, direction.x);

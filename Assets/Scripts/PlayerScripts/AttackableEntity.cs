@@ -9,28 +9,29 @@ public class AttackableEntity : MonoBehaviour
 
     private bool invincible = false;
 
-    /*
-    private void OnCollisionStay2D(Collision2D collision)
+    private OnDamageReceive onDamageReceive;
+
+    private void Start()
+    {
+        onDamageReceive = gameObject.GetComponent<OnDamageReceive>();
+        if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<OnDamageReceive>();
+    }
+
+    public void RecieveDamage(float value)
     {
         if (!invincible)
         {
-            DamageSource damageSource = collision.gameObject.GetComponent<DamageSource>();
-            if (damageSource != null)
-            {
-                RecieveDamage(damageSource.damage);
-            }
+            this.invincible = true;
+            onDamageReceive.OnHit(invincibilityDelay);
+            health -= value;
+            if (health <= 0) OnDie();
+            Invoke("InvincibilityEnd", invincibilityDelay);
         }
     }
-    */
-    public void RecieveDamage(float value)
+
+    public void RecieveImpulse(float range, float speed, Vector2 direction)
     {
-        health -= value;
-        if (health <= 0) OnDie();
-        this.invincible = true;
-        Invoke("InvincibilityEnd", invincibilityDelay);
-    }
-    public void RecieveImpulse(float range, float speed, Vector2 direction) {
-        StartCoroutine(Flight(range,  speed,  direction,5));
+        StartCoroutine(Flight(range, speed, direction, 5));
     }
 
     public void RecieveHeal(float value)
@@ -46,6 +47,7 @@ public class AttackableEntity : MonoBehaviour
     void InvincibilityEnd()
     {
         invincible = false;
+        onDamageReceive.Stop();
     }
 
     IEnumerator Flight(float range, float speed, Vector2 direction,float timeMotionLess)
