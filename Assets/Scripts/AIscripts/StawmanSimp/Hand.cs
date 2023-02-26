@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
     public float attackDelay = 0.8f;
     public float damage = 10f;
-
+    public float attackSpeed = 3f;
     public float offset = 1.8f;
 
-    private float currentPos = 0f;
+    private float currentAngle = 0f;
 
     private Vector2 direction;
 
     private Vector3 defaultPos;
     private Quaternion defaultRot;
-
     private Collider2D hitbox;
+
+
+    private float endAnglePosHit;
+    private float hitAngle = 170f;
 
     private void Start()
     {
@@ -28,40 +32,48 @@ public class Hand : MonoBehaviour
 
     public float PerformAttack(Vector2 direction)
     {
-        this.direction = direction;
+        this.direction = direction.normalized;
         float angle = Mathf.Atan2(direction.y, direction.x);
 
-        transform.localPosition = new Vector3(direction.x * offset, direction.y * offset, defaultPos.z);
-        transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - 90f);
+        //transform.localPosition = new Vector3(direction.x * offset, direction.y * offset, defaultPos.z);
 
-        currentPos = 0f;
+        //transform.localPosition = new Vector3(direction.x , direction.y, defaultPos.z);
+
+        //transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - 90f);
+        endAnglePosHit = angle;
+
+        currentAngle = endAnglePosHit + hitAngle;
+        transform.rotation = Quaternion.Euler(0f, 0f, currentAngle * Mathf.Rad2Deg);
+        //transform.Rotate(0f, 0f, currentAngle);
+
         hitbox.enabled = true;
-        //StartCoroutine(Attack());
+        StartCoroutine(Attack());
         return attackDelay;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        hitbox.enabled = false;
-        transform.localPosition = defaultPos;
-        transform.rotation = defaultRot;
-
-        other.GetComponent<AttackableEntity>().RecieveDamage(damage);
-
-    }
-    /*
     public IEnumerator Attack()
     {
-        while (currentPos < attackRange)
+        while (currentAngle > endAnglePosHit )
         {
-            Vector2 movement = direction * attackSpeed;
-            transform.localPosition += new Vector3(movement.x, movement.y, 0);
-            currentPos += movement.magnitude;
+            float difAngle = attackSpeed;
+            //transform.rotation = Quaternion.Euler(0f, 0f, currentAngle * Mathf.Rad2Deg);
+            transform.Rotate(new Vector3(0f, 0f, difAngle));
+            currentAngle -= difAngle;
             yield return new WaitForFixedUpdate();
         }
+        Debug.Log("End");
         hitbox.enabled = false;
         transform.localPosition = defaultPos;
         transform.rotation = defaultRot;
     }
-    */
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if(other.tag == "Player")
+        {
+            other.GetComponent<AttackableEntity>().RecieveDamage(damage);
+        }
+    }
+    
+    
+    
 }

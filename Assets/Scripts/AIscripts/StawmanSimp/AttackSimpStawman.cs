@@ -8,7 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 public class AttackSimpStawman : MonoBehaviour
 {
     private Transform target;
-    public float attackDistance = 1f;
+    public float attackDistance = 2f;
 
     private bool canAttack = true;
     public Hand hand;
