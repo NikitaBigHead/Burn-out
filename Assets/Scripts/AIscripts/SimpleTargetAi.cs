@@ -20,7 +20,7 @@ public class SimpleTargetAi : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 #if DEBUG
         if (target != null)

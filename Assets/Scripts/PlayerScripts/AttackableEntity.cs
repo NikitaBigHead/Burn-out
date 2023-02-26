@@ -29,6 +29,9 @@ public class AttackableEntity : MonoBehaviour
         this.invincible = true;
         Invoke("InvincibilityEnd", invincibilityDelay);
     }
+    public void RecieveImpulse(float range, float speed, Vector2 direction) {
+        StartCoroutine(Flight(range,  speed,  direction,5));
+    }
 
     public void RecieveHeal(float value)
     {
@@ -44,4 +47,46 @@ public class AttackableEntity : MonoBehaviour
     {
         invincible = false;
     }
+
+    IEnumerator Flight(float range, float speed, Vector2 direction,float timeMotionLess)
+    {
+        List<MonoBehaviour> scripts = gameObject.GetComponent<ScriptsHolder>().list;
+
+        float dist = 0;
+        for (int i = 0; i < scripts.Count; i++)
+        {
+            scripts[i].enabled = false;
+        }
+
+
+        while (dist <= range)
+        {
+            Vector2 translation = new Vector2(direction.x, direction.y) * speed;
+            transform.Translate(translation);
+            dist += translation.magnitude;
+            yield return new WaitForFixedUpdate();
+        }
+        gameObject.GetComponent<NavMeshholder>().navMesh.active = false;
+        StartCoroutine(motionLess(timeMotionLess));
+
+    }
+
+    IEnumerator motionLess(float timeMotionLess) {
+        float time = 0;
+        List<MonoBehaviour> scripts = gameObject.GetComponent<ScriptsHolder>().list;
+        
+        while (time <= timeMotionLess)
+        {
+            time += Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        gameObject.GetComponent<NavMeshholder>().navMesh.active = true;
+        for (int i = 0; i < scripts.Count; i++)
+        {
+            scripts[i].enabled = true;
+        }
+
+
+    }
+
 }
