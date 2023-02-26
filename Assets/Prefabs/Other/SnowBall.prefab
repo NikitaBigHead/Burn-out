@@ -50,7 +50,9 @@ MonoBehaviour:
   size: 1
   range: 1
   direction: {x: 0, y: 0}
+  damage: 5
   cashRange: 0
+  isPLayerRecaptured: 0
 --- !u!58 &8150434358324648118
 CircleCollider2D:
   m_ObjectHideFlags: 0
