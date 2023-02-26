@@ -24,7 +24,7 @@ public class AttackableEntity : MonoBehaviour
             this.invincible = true;
             onDamageReceive.OnHit(invincibilityDelay);
             health -= value;
-            if (health <= 0) OnDie();
+            if (health <= 0) OnDeath();
             Invoke("InvincibilityEnd", invincibilityDelay);
         }
     }
@@ -39,7 +39,7 @@ public class AttackableEntity : MonoBehaviour
         health += value;
     }
 
-    protected void OnDie()
+    protected void OnDeath()
     {
         Destroy(this.gameObject);
     }
