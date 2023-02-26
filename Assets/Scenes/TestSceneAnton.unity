@@ -5348,6 +5348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2385a2f5b1d15d94eb625e2f829785f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ravensPrefab: {fileID: 4856327812297922845, guid: 8fed28d358195f94a8dd07ff690fc714, type: 3}
+  ravensDefaultOffset: -2.75
   target: {fileID: 0}
   offset: {x: 0, y: -1.5, z: 0}
   targetOffset: {x: 0, y: -0.295, z: 0}
@@ -7347,7 +7349,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: f6538f868a7716242b9b33485b7d5809, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7337b4d07df4c624086664005fa51448, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9082,13 +9084,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1921689600}
   - component: {fileID: 1921689601}
+  - component: {fileID: 1921689603}
+  - component: {fileID: 1921689602}
   m_Layer: 0
   m_Name: Ravens
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1921689600
 Transform:
   m_ObjectHideFlags: 0
@@ -9097,7 +9101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921689599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.24, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9125,6 +9129,51 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!60 &1921689602
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921689599}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.362176, y: -2.6000047}
+      - {x: 0.010152996, y: 2.9299994}
+      - {x: -1.4540412, y: -2.5956702}
+--- !u!114 &1921689603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921689599}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2306de8def2f44c9180a2c7a78792d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ravensPrefab: {fileID: 0}
+  damage: 15
+  speed: 0.1
+  maxX: 26
+  maxY: 12
 --- !u!1 &2005625695
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,10 @@ public class FinalBossAiPhase2 : MonoBehaviour
     private State state = State.Waiting;
 
     [SerializeField]
-    private Transform ravens;
+    private GameObject ravensPrefab;
+
+    //[SerializeField]
+    //private Transform ravens;
 
     public float ravensDefaultOffset = -2.24f;
 
@@ -53,7 +56,7 @@ public class FinalBossAiPhase2 : MonoBehaviour
         if (target == null) target = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
 
-        ravens.transform.position = transform.position + new Vector3(0, ravensDefaultOffset, 0);
+        //ravens.transform.position = transform.position + new Vector3(0, ravensDefaultOffset, 0);
 
         StartCoroutine(ResetStateAfterDelay(State.PrepareToRun, 1f));
     }
@@ -106,9 +109,18 @@ public class FinalBossAiPhase2 : MonoBehaviour
                 break;
 
             case State.PrepareToRavenAttack:
-                ravens.transform.position = transform.position + new Vector3(0, ravensDefaultOffset, 0);
-                ravens.GetComponent<Animator>().Play("OutAnimation");
                 state = State.RavenAttack;
+                Debug.Log("preparing to raven attack");
+                GameObject spawnedRavens = Instantiate(ravensPrefab);
+                RavensAi ravensAi = spawnedRavens.GetComponent<RavensAi>();
+                if (ravensAi == null)
+                {
+                    Debug.Log("RAVENAI == NULL");
+                }
+                ravensAi.Ensnare(transform, target.position, ravensDefaultOffset, 0.1f);
+
+                //this.ravens.transform.position = transform.position + new Vector3(0, ravensDefaultOffset, 0);
+                //this.ravens.GetComponent<Animator>().Play("OutAnimation");
                 break;
 
             case State.RavenAttack:
