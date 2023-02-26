@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponFork : MonoBehaviour
+public class Hand : MonoBehaviour
 {
-    public float attackDelay = 1.5f;
-    public float attackRange = 3;
-    public float attackSpeed = 0.3f;
+    public float attackDelay = 0.8f;
+    public float damage = 10f;
 
     public float offset = 1.8f;
 
@@ -23,7 +22,7 @@ public class WeaponFork : MonoBehaviour
     {
         defaultPos = transform.localPosition;
         defaultRot = transform.rotation;
-        hitbox = GetComponentInChildren<Collider2D>();
+        hitbox = GetComponent<Collider2D>();
         hitbox.enabled = false;
     }
 
@@ -31,14 +30,26 @@ public class WeaponFork : MonoBehaviour
     {
         this.direction = direction;
         float angle = Mathf.Atan2(direction.y, direction.x);
+
         transform.localPosition = new Vector3(direction.x * offset, direction.y * offset, defaultPos.z);
-        transform.rotation = Quaternion.Euler(0f, 0f, angle*Mathf.Rad2Deg - 90f);
+        transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - 90f);
+
         currentPos = 0f;
         hitbox.enabled = true;
-        StartCoroutine(Attack());
+        //StartCoroutine(Attack());
         return attackDelay;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        hitbox.enabled = false;
+        transform.localPosition = defaultPos;
+        transform.rotation = defaultRot;
+
+        other.GetComponent<AttackableEntity>().RecieveDamage(damage);
+
+    }
+    /*
     public IEnumerator Attack()
     {
         while (currentPos < attackRange)
@@ -52,4 +63,5 @@ public class WeaponFork : MonoBehaviour
         transform.localPosition = defaultPos;
         transform.rotation = defaultRot;
     }
+    */
 }
