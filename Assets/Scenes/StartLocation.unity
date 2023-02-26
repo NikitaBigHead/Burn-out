@@ -189,7 +189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &90414228
 GameObject:
@@ -13056,57 +13056,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1135249575
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1135249577}
-  - component: {fileID: 1135249576}
-  m_Layer: 0
-  m_Name: Cutscene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1135249576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135249575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33f47d9098f4e134896b5c52c8969450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: ffa3403f50fadd844a0d82be0cc51689, type: 3}
-  - {fileID: 21300000, guid: 26df18cc17cce0a4a965021e66832908, type: 3}
-  - {fileID: 21300000, guid: 4f711b86d6a1cfb49aedce13f805cc9c, type: 3}
-  - {fileID: 21300000, guid: 5b4fe2454eb9e614993a348ea32ef8cc, type: 3}
-  cutsceneUI: {fileID: 2015966887}
-  background: {fileID: 1426140684}
---- !u!4 &1135249577
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135249575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286126311
 GameObject:
   m_ObjectHideFlags: 0
@@ -14893,7 +14842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc1bc3822ae1a3468a7841f66073df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1907845072038562221, guid: 283c49a65f7246044abc61a287bed135, type: 3}
+  enemyPrefab: {fileID: 1907845072038562221, guid: 9c15c73259d20694793d8c51b23097e3, type: 3}
   tutorialUI: {fileID: 1633875069}
   caption: {fileID: 1286126313}
   door: {fileID: 120209874}
@@ -15165,7 +15114,7 @@ RectTransform:
   - {fileID: 989618171}
   - {fileID: 1633875070}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
