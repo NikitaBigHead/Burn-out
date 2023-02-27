@@ -9,8 +9,11 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 direction;
     private Rigidbody2D rb;
 
+    private Animator anim;
     private void Awake()
     {
+        anim = GetComponent<Animator>();
+        Debug.Log(anim);
         if (PlayerData.prefab == null) PlayerData.prefab = this.gameObject;
     }
 
@@ -26,6 +29,22 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if(direction == Vector2.zero)
+        {
+            anim.Play("PlayerIdleForward");
+
+        }
+        if (rb.position.y - direction.y < 0)
+        {
+            anim.Play("PlayerWalkBack");
+        }
+        else if(rb.position.y - direction.y > 0)
+        {
+            anim.Play("PlayerWalk");
+            //anim.SetBool("IsStay", false);
+            //anim.SetBool("IsGoBack", false);
+            //anim.SetBool("IsGoForward", true);
+        }
         rb.MovePosition(rb.position + direction.normalized*speed);
           
     }
