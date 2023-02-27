@@ -15,7 +15,7 @@ public class Attack : MonoBehaviour
     public float damage = 10f;
 
     public float forceSpeedAttack = 20f;
-    public float rangeAttack = 10f;
+    public float rangeAttack = 0f;
 
     public SpriteRenderer spriteRendererPan;
 
@@ -59,7 +59,7 @@ public class Attack : MonoBehaviour
             isAttacked= false;
             Invoke("disableCollider", timeAttack);
         }
-    }
+    }/*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -82,7 +82,23 @@ public class Attack : MonoBehaviour
             }
         }
     }
+    */
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            AttackableEntity attackableEntity = collision.gameObject.GetComponent<AttackableEntity>();
+            attackableEntity.RecieveDamage(damage);
 
+            if (collision.gameObject.name != "JumperBag(Clone)")
+            {
+                Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) -
+                    collision.gameObject.transform.position).normalized;
+
+                attackableEntity.RecieveImpulse(rangeAttack, forceSpeedAttack, direction);
+            }
+        }
+    }
     private void disableCollider()
     {
         spriteRendererPan.color = Color.gray;

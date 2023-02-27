@@ -48,10 +48,22 @@ public class SimpleProjectile : MonoBehaviour
         }
         else if (collision.tag == "Pan")
         {
-            direction = new Vector2(-direction.x, -direction.y);
-            range = cashRange;
-            isPLayerRecaptured = true;
+            if (this.gameObject.tag == "Rock")
+            {
+                direction = new Vector2(-direction.x, -direction.y);
+                range = cashRange;
+                isPLayerRecaptured = true;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
 
+
+        }
+        else if(collision.tag == "Bag")
+        {
+            Destroy(this.gameObject);
         }
         
     }

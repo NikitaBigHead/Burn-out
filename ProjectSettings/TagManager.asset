@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Rock
   - Bag
+  - Snow Ball
+  - Hint
+  - UI
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackableEntity : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class AttackableEntity : MonoBehaviour
 
     protected bool invincible = false;
 
-    protected OnDamageReceive onDamageReceive;
+    private OnDamageReceive onDamageReceive;
+    protected NavMeshAgent navMeshAgent;  
 
     protected void Start()
     {
+        navMeshAgent = GetComponent<NavMeshAgent>();
         onDamageReceive = gameObject.GetComponent<OnDamageReceive>();
         if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<OnDamageReceive>();
     }
@@ -31,7 +34,8 @@ public class AttackableEntity : MonoBehaviour
 
     public void RecieveImpulse(float range, float speed, Vector2 direction)
     {
-        StartCoroutine(Flight(range, speed, direction, 5));
+        if(range!=0 && speed!=0) { StartCoroutine(Flight(range, speed, direction, 5)); }
+
     }
 
     public void RecieveHeal(float value)
@@ -68,7 +72,8 @@ public class AttackableEntity : MonoBehaviour
             dist += translation.magnitude;
             yield return new WaitForFixedUpdate();
         }
-        gameObject.GetComponent<NavMeshholder>().navMesh.active = false;
+        //gameObject.GetComponent<NavMeshholder>().navMesh.active = false;
+        navMeshAgent.enabled = false;
         StartCoroutine(motionLess(timeMotionLess));
 
     }
@@ -82,7 +87,8 @@ public class AttackableEntity : MonoBehaviour
             time += Time.deltaTime;
             yield return new WaitForFixedUpdate();
         }
-        gameObject.GetComponent<NavMeshholder>().navMesh.active = true;
+        //gameObject.GetComponent<NavMeshholder>().navMesh.active = true;
+        navMeshAgent.enabled = true;
         for (int i = 0; i < scripts.Count; i++)
         {
             scripts[i].enabled = true;

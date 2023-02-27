@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5669428533301434498}
   - component: {fileID: 5669428533301434499}
+  - component: {fileID: 356256633425905431}
   m_Layer: 0
   m_Name: hitbox
   m_TagString: Untagged
@@ -42,7 +43,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.27931464, y: 0.80264556}
@@ -58,6 +59,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.300724, y: 0.4442882}
   m_EdgeRadius: 0
+--- !u!114 &356256633425905431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669428533301434557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e4737358ce2e64aa934d8d43b088a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &5669428533933711816
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +220,7 @@ GameObject:
   - component: {fileID: 5669428534697547263}
   - component: {fileID: 8994487019120283365}
   - component: {fileID: 4078832226001529158}
+  - component: {fileID: 843607585}
   m_Layer: 0
   m_Name: StrawmanScythe
   m_TagString: Enemy
@@ -307,6 +322,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   invincibilityDelay: 0.25
+--- !u!114 &843607585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669428534697547257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e26222303e14d04fa65c268883d35b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 5669428534697547263}
 --- !u!1 &5669428535144293206
 GameObject:
   m_ObjectHideFlags: 0
