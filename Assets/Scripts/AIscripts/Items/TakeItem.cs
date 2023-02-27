@@ -15,6 +15,8 @@ public class TakeItem : MonoBehaviour
     private TextMeshProUGUI hint;
     private GameObject player;
     private SetitemsUI setItem;
+
+    private bool isTrigger = false;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -30,7 +32,8 @@ public class TakeItem : MonoBehaviour
         if (collision.tag == "Player")
         {
             hint.text = text;
-            StartCoroutine(waitPlayerDecide());
+            //StartCoroutine(waitPlayerDecide());
+            isTrigger= true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -38,27 +41,34 @@ public class TakeItem : MonoBehaviour
         if (collision.tag == "Player")
         {
             hint.text = "";
-            StopCoroutine(waitPlayerDecide());
+            //StopCoroutine(waitPlayerDecide());
+            isTrigger= false;
         }
     }
 
+    private void  Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && isTrigger)
+        {
+            Item item = new Item(keyItem, id);
+            PlayerData.listKey = item;
+            setItem.addItem(ref item);
+            Destroy(this.gameObject);
 
+        }
+    }/*
     IEnumerator waitPlayerDecide()
     {
-        while(true)
-            {
             if (Input.GetKeyDown(KeyCode.E))
-            {
-                Item item = new Item(keyItem, id);
-                PlayerData.listKey = item;
-                setItem.addItem(item);
+        {
+            Item item = new Item(keyItem, id);
+            PlayerData.listKey = item;
+            setItem.addItem(ref item);
+            Destroy(this.gameObject);
 
-                StopCoroutine(waitPlayerDecide());
-                Destroy(this.gameObject);
-                break;
-            }
-            yield return null;
         }
-
+            yield return new  WaitForEndOfFrame() ;
+        
     }
+    */
 }

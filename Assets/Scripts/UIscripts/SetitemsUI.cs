@@ -8,8 +8,8 @@ public class SetitemsUI : MonoBehaviour
     private List<Item> keyItems;
     private List<GameObject> iconsitems;
 
-    private Dictionary<string, GameObject> icons;
-    private Dictionary<string, GameObject> countIcons;
+    private Dictionary<string, GameObject> icons = new Dictionary<string, GameObject>();
+    private Dictionary<string, GameObject> countIcons = new Dictionary<string, GameObject>();
 
     private string[] keys = {"pan","bag","pancake","key", "pancake", "key" };
 
@@ -20,13 +20,15 @@ public class SetitemsUI : MonoBehaviour
     {
         keyItems = PlayerData.getListKey;
         iconsitems = GetComponent<UIGameObjectHandler>().gameObjects;
+        Debug.Log(iconsitems.Count);
 
-        for (int i = 0; i < iconsitems.Count - 2; i++)
+        for (int i = 0; i < (iconsitems.Count - 2); i++)
         {
             icons.Add(keys[i], iconsitems[i]);
         }
-        for(int i = iconsitems.Count - 2; i < iconsitems.Count; i++)
+        for(int i = (iconsitems.Count - 2); i < iconsitems.Count; i++)
         {
+            Debug.Log(i);
             countIcons.Add(keys[i], iconsitems[i]);
         }
     }
@@ -42,8 +44,9 @@ public class SetitemsUI : MonoBehaviour
         countPancake =  getCountKey(keyItems,"pancake");
         countKeys = getCountKey(keyItems,"key");
     }
-    public void addItem(Item item)
+    public void addItem(ref  Item item)
     {
+
         string key = item.key;
         if(key == "pancake")
         {

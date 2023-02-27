@@ -6,7 +6,7 @@ public static class PlayerData
 {
     private static GameObject prefabName;
     //private static List<string> list;
-    private static List<Item> list;
+    private static List<Item> list = new List<Item>();
     public static GameObject prefab
     {
         get

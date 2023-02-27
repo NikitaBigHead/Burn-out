@@ -9,6 +9,7 @@ TagManager:
   - Bag
   - Snow Ball
   - Hint
+  - UI
   layers:
   - Default
   - TransparentFX
