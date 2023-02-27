@@ -7,17 +7,17 @@ public class AttackableEntity : MonoBehaviour
     public float health = 100f;
     public float invincibilityDelay = 0.25f;
 
-    private bool invincible = false;
+    protected bool invincible = false;
 
-    private OnDamageReceive onDamageReceive;
+    protected OnDamageReceive onDamageReceive;
 
-    private void Start()
+    protected void Start()
     {
         onDamageReceive = gameObject.GetComponent<OnDamageReceive>();
         if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<OnDamageReceive>();
     }
 
-    public void RecieveDamage(float value)
+    public virtual void RecieveDamage(float value)
     {
         if (!invincible)
         {
@@ -39,18 +39,18 @@ public class AttackableEntity : MonoBehaviour
         health += value;
     }
 
-    protected void OnDeath()
+    protected virtual void OnDeath()
     {
         Destroy(this.gameObject);
     }
 
-    void InvincibilityEnd()
+    protected virtual void InvincibilityEnd()
     {
         invincible = false;
         onDamageReceive.Stop();
     }
 
-    IEnumerator Flight(float range, float speed, Vector2 direction,float timeMotionLess)
+    protected IEnumerator Flight(float range, float speed, Vector2 direction,float timeMotionLess)
     {
         List<MonoBehaviour> scripts = gameObject.GetComponent<ScriptsHolder>().list;
 
@@ -73,7 +73,7 @@ public class AttackableEntity : MonoBehaviour
 
     }
 
-    IEnumerator motionLess(float timeMotionLess) {
+    protected IEnumerator motionLess(float timeMotionLess) {
         float time = 0;
         List<MonoBehaviour> scripts = gameObject.GetComponent<ScriptsHolder>().list;
         
