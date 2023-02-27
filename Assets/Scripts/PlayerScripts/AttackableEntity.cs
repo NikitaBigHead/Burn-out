@@ -10,8 +10,8 @@ public class AttackableEntity : MonoBehaviour
 
     protected bool invincible = false;
 
-    private OnDamageReceive onDamageReceive;
-    protected NavMeshAgent navMeshAgent;  
+    protected OnDamageReceive onDamageReceive;
+    private NavMeshAgent navMeshAgent;  
 
     protected void Start()
     {
