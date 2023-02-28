@@ -10,10 +10,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     private Animator anim;
+
+    private bool isForward = true;
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        Debug.Log(anim);
         if (PlayerData.prefab == null) PlayerData.prefab = this.gameObject;
     }
 
@@ -29,22 +30,62 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Vector2 mouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position ;
+
         if(direction == Vector2.zero)
         {
-            anim.Play("PlayerIdleForward");
+            if (mouseDir.y<0) anim.Play("PlayerIdleForward");
+            else anim.Play("PlayerIdleBack");
+        }
 
-        }
-        if (rb.position.y - direction.y < 0)
+        else if(direction.x==0 || direction.y == 0)
         {
-            anim.Play("PlayerWalkBack");
+            if (direction.y != 0)
+            {
+                if (mouseDir.y > 0)
+                {
+                    anim.Play("PlayerWalkBack");
+                    isForward = false;
+                }
+                else if (mouseDir.y < 0)
+                {
+                    anim.Play("PlayerWalk");
+                    isForward = true;
+                }
+            } 
+            if (direction.x != 0)
+            {
+                if (mouseDir.x < 0)
+                {
+                    anim.Play("PlayerLeft");
+                }
+                else if (mouseDir.x > 0)
+                {
+                    anim.Play("PlayerRight");
+                }
+            }
+           
         }
-        else if(rb.position.y - direction.y > 0)
+        else if (direction.x != 0 && direction.y != 0)
         {
-            anim.Play("PlayerWalk");
-            //anim.SetBool("IsStay", false);
-            //anim.SetBool("IsGoBack", false);
-            //anim.SetBool("IsGoForward", true);
+            if (mouseDir.y > 0)
+            {
+                anim.Play("PlayerWalkBack");
+                isForward = false;
+            }
+            else if (mouseDir.y < 0)
+            {
+                anim.Play("PlayerWalk");
+                isForward = true;
+            }
         }
+      
+        /*
+        if(direction.x!= 0) {
+            if (isForward) anim.Play("PlayerWalk");
+            else anim.Play("PlayerWalkBack");
+        }
+        */
         rb.MovePosition(rb.position + direction.normalized*speed);
           
     }
