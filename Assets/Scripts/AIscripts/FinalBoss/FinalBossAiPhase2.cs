@@ -135,6 +135,14 @@ public class FinalBossAiPhase2 : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<AttackableEntity>().RecieveDamage(damage);
+        }
+    }
+
     private IEnumerator ResetStateAfterDelay(State newState, float delay)
     {
         yield return new WaitForSeconds(delay);

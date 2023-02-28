@@ -38,7 +38,7 @@ public class AttackableEntity : MonoBehaviour
 
     }
 
-    public void RecieveHeal(float value)
+    public virtual void RecieveHeal(float value)
     {
         health += value;
     }

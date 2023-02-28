@@ -19,7 +19,7 @@ public class CutsceneScript : MonoBehaviour
 
     public void StartCutscene()
     {
-        if (StateController.cutsceneComplited)
+        if (PlayerData.cutsceneComplited)
             SceneManager.LoadScene("StartLocation", LoadSceneMode.Single);
         background.sprite = sprites[currentSpriteIndex];
         cutsceneUI.SetActive(true);
@@ -30,7 +30,7 @@ public class CutsceneScript : MonoBehaviour
         currentSpriteIndex++;
         if (currentSpriteIndex == sprites.Count)
         {
-            StateController.cutsceneComplited = true;
+            PlayerData.cutsceneComplited = true;
             cutsceneUI.SetActive(false);
             SceneManager.LoadScene("StartLocation", LoadSceneMode.Single);
         }

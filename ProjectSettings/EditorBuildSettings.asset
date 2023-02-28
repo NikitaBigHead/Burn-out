@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Barnlocation.unity
     guid: 99d10c29c2c15dc49a7c2f7855905e36
+  - enabled: 1
+    path: Assets/Scenes/TestSceneAnton.unity
+    guid: 310aefaa6ed5dd94d86a8366270b73f1
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: 229fbff03af255c428991663c730c631
   m_configObjects: {}

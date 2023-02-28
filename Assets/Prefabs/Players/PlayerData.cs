@@ -7,6 +7,7 @@ public static class PlayerData
     private static GameObject prefabName;
     //private static List<string> list;
     private static List<Item> list = new List<Item>();
+
     public static GameObject prefab
     {
         get
@@ -33,7 +34,16 @@ public static class PlayerData
             return list;
         }
     }
-    
+
+    // Cutscene State
+    public static bool cutsceneComplited = false;
+    //
+    // Tutorial State
+    public static bool tutorialComplited = false;
+    //
+    // Player Health
+    public static float playerCurrentHealth = 100;
+    //
 
 }
 public class Item

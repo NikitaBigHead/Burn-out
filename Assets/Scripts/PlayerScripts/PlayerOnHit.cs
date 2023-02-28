@@ -23,16 +23,24 @@ public class PlayerOnHit : OnDamageReceive
     private IEnumerator coroutine;
     private IEnumerator fadeCoroutine;
 
+    private bool stay = false; 
+
     private void Start()
     {
         if (sprite == null)
             sprite = GetComponentInChildren<SpriteRenderer>();
         defaultColor = sprite.color;
+        if (Camera.main.transform.parent == transform)
+        {
+            stay = true;
+            textHealth.rectTransform.localPosition = offset;
+        }
     }
 
     public override void OnHit(float health)
     {
         textHealth.gameObject.SetActive(true);
+        if (!stay)
         textHealth.rectTransform.localPosition = transform.position + offset;
         textHealth.text = $"{health}/100";
         blinkState = false;
@@ -48,7 +56,8 @@ public class PlayerOnHit : OnDamageReceive
     public void OnHit(float health, float maxHealth)
     {
         textHealth.gameObject.SetActive(true);
-        textHealth.rectTransform.localPosition = transform.position + offset;
+        if (!stay)
+            textHealth.rectTransform.localPosition = (stay ? offset : transform.position + offset);
         textHealth.text = $"{health}/{maxHealth}";
         blinkState = false;
         coroutine = Blink();
@@ -94,7 +103,8 @@ public class PlayerOnHit : OnDamageReceive
         while (timePassed < maxFadeTime)
         {
             timePassed += Time.fixedDeltaTime;
-            textHealth.rectTransform.localPosition = transform.position + offset;
+            if (!stay)
+                textHealth.rectTransform.localPosition = transform.position + offset;
             faded -= speedFade;
             textHealth.color = new Color(1, 1, 1, faded);
             yield return new WaitForFixedUpdate();

@@ -26,6 +26,7 @@ public class AccelerationDropDownProjectile : MonoBehaviour
     {
         this.size = size;
         this.speed = speed;
+        if (spawnPos.x > targetPos.x) this.speed *= -1;
         eq = Parabola.FindParabola(new Vector2(spawnPos.x, spawnPos.y + height), peakPos, targetPos);
         main.transform.position = new Vector3(spawnPos.x, spawnPos.y + height, 0);
         shadow.transform.position = new Vector3(spawnPos.x, spawnPos.y, 0);

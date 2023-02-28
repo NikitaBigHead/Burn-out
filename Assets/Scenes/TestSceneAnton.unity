@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 226840454}
   - component: {fileID: 226840453}
   - component: {fileID: 226840452}
+  - component: {fileID: 226840455}
   m_Layer: 0
   m_Name: FinalBossPhase2
   m_TagString: Untagged
@@ -553,6 +554,22 @@ MonoBehaviour:
   maxSpeed: 0.112
   startSpeed: 0
   damage: 20
+--- !u!114 &226840455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226840450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a458c16a892402e41828fc7188b9c734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  invincibilityDelay: 0.25
+  phase1: {fileID: 1774835222}
+  phase2: {fileID: 1414165468}
 --- !u!1 &255791709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,13 +1148,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 371782530, guid: f1bec867776458146810e26b57519482, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1970137642423696858, guid: f1bec867776458146810e26b57519482, type: 3}
       propertyPath: textHealth
       value: 
       objectReference: {fileID: 1230200921}
     - target: {fileID: 3426680579057569502, guid: f1bec867776458146810e26b57519482, type: 3}
       propertyPath: health
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3994285909771319581, guid: f1bec867776458146810e26b57519482, type: 3}
       propertyPath: m_RootOrder
@@ -5000,11 +5021,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2042254418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7bd9baedc362aa4c8cfb9f24e675c5f, type: 3}
+  m_Script: {fileID: 11500000, guid: a458c16a892402e41828fc7188b9c734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
   invincibilityDelay: 0.25
+  phase1: {fileID: 1414165468}
+  phase2: {fileID: 1774835222}
 --- !u!4 &2044007620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8215780146612370381, guid: e0680b6542529a34dbef2134fee20c2e, type: 3}
