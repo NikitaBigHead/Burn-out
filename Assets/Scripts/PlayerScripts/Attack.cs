@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,7 +9,10 @@ public class Attack : MonoBehaviour
     public float timeAttack = 0.5f;
     public float delayAttack;
 
-    //public Animator animator;
+    public Animator animator;
+
+    public string animation;
+    private int layer = 0;
     public float offset;//смещение связанное с мышью
 
     public bool isAttacked = false;
@@ -25,6 +29,8 @@ public class Attack : MonoBehaviour
     private void Awake()
     {
         collider= GetComponent<Collider2D>();
+        if (animation == "Bag") layer = 1;
+
     }
     private void Update()
     {
@@ -53,36 +59,13 @@ public class Attack : MonoBehaviour
         if(isAttacked)
         {
             spriteRendererPan.color = Color.red;
-
-            isCanAttack= false;
+            animator.Play(animation,layer);
+            isCanAttack = false;
             collider.enabled = true;
             isAttacked= false;
             Invoke("disableCollider", timeAttack);
         }
-    }/*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            AttackableEntity attackableEntity = collision.gameObject.GetComponent<AttackableEntity>();
-            attackableEntity.RecieveDamage(damage);
-
-            if(collision.gameObject.name!= "JumperBag(Clone)")
-            {
-                Debug.Log("work");
-                Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - 
-                    collision.gameObject.transform.position).normalized;
-
-                attackableEntity.RecieveImpulse(rangeAttack,forceSpeedAttack,direction);
-
-                //Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-                //rb.AddForce(direction * forceAttack);
-
-                //StartCoroutine( stopGameObject(rb));
-            }
-        }
     }
-    */
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -101,6 +84,7 @@ public class Attack : MonoBehaviour
     }
     private void disableCollider()
     {
+        animator.Play("Empty");
         spriteRendererPan.color = Color.gray;
 
         collider.enabled = false;
@@ -108,7 +92,6 @@ public class Attack : MonoBehaviour
     }
     private void enableAttack()
     {
-        spriteRendererPan.color = Color.white;
         isCanAttack = true;
     }
     /*
