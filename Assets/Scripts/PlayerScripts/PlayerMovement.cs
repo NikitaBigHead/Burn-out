@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
     private bool isForward = true;
+
+   
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -32,10 +34,29 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 mouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position ;
 
-        if(direction == Vector2.zero)
+        if (direction == Vector2.zero)
         {
-            if (mouseDir.y<0) anim.Play("PlayerIdleForward");
-            else anim.Play("PlayerIdleBack");
+
+
+            Vector2 mouseDirNorm = mouseDir.normalized;
+
+            if (mouseDir.y > 0 && -1 <= mouseDir.x && mouseDir.x <= 1)
+            {
+                    anim.Play("PlayerIdleBack");
+            }
+            else if (mouseDir.y < 0 && -1 <= mouseDir.x && mouseDir.x <= 1)
+            {
+                anim.Play("PlayerIdleForward");
+            }
+            else if (mouseDir.x > 0)
+            {
+                anim.Play("PlayerRight");
+            }
+            else if (mouseDir.x < 0)
+            {
+                anim.Play("PlayerLeft");
+            }
+
         }
 
         else if(direction.x==0 || direction.y == 0)
@@ -80,13 +101,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
       
-        /*
-        if(direction.x!= 0) {
-            if (isForward) anim.Play("PlayerWalk");
-            else anim.Play("PlayerWalkBack");
-        }
-        */
+       
         rb.MovePosition(rb.position + direction.normalized*speed);
           
+    }
+    private bool isVectorBetween(Vector2 current, Vector2 a, Vector3 b)
+    {
+        if (b.x <= current.x && b.y <= current.y &&
+            current.x <= a.x && current.y <= a.y) return true;
+        return false;
     }
 }

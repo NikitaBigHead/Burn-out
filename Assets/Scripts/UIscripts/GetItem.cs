@@ -16,8 +16,6 @@ public class GetItem : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         Pan = player.transform.Find("Pan").gameObject;
         Bag = player.transform.Find("Bag").gameObject;
-        Debug.Log(Pan);
-        Debug.Log(Bag);
 
     }
     

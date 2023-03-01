@@ -20,7 +20,6 @@ public class SetitemsUI : MonoBehaviour
     {
         keyItems = PlayerData.getListKey;
         iconsitems = GetComponent<UIGameObjectHandler>().gameObjects;
-        Debug.Log(iconsitems.Count);
 
         for (int i = 0; i < (iconsitems.Count - 2); i++)
         {
@@ -28,7 +27,7 @@ public class SetitemsUI : MonoBehaviour
         }
         for(int i = (iconsitems.Count - 2); i < iconsitems.Count; i++)
         {
-            Debug.Log(i);
+
             countIcons.Add(keys[i], iconsitems[i]);
         }
     }
