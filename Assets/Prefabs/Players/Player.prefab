@@ -153,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &371782528
 Transform:
   m_ObjectHideFlags: 0
@@ -678,10 +678,11 @@ GameObject:
   - component: {fileID: 3994285909771319555}
   - component: {fileID: 3994285909771319554}
   - component: {fileID: 4853401749591150809}
-  - component: {fileID: 5629902311666067745}
   - component: {fileID: 954827926}
   - component: {fileID: 954827921}
   - component: {fileID: 954827916}
+  - component: {fileID: 1804920295776240537}
+  - component: {fileID: 6255934438626020342}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -769,20 +770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   direction: {x: 0, y: 0}
---- !u!114 &5629902311666067745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3994285909771319582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7bd9baedc362aa4c8cfb9f24e675c5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  invincibilityDelay: 0.25
 --- !u!212 &954827926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -869,6 +856,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjects:
   - {fileID: 265250233}
+--- !u!114 &1804920295776240537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994285909771319582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a42ccab069e2d429aa59f448558946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  invincibilityDelay: 0.25
+  onDamageReceive: {fileID: 0}
+  maxHealth: 100
+--- !u!114 &6255934438626020342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994285909771319582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8998ae0943e2046875d8cb6cab27ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 2, z: 0}
+  delay: 0.1
+  blinkColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sprite: {fileID: 0}
+  textHealth: {fileID: 0}
 --- !u!1 &5248871893580334589
 GameObject:
   m_ObjectHideFlags: 0
