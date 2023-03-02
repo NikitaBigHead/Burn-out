@@ -44,6 +44,9 @@ public static class PlayerData
     // Player Health
     public static float playerCurrentHealth = 100;
     //
+    // Player Health
+    public static float playerMaxHealth = 100;
+    //
 
 }
 public class Item
