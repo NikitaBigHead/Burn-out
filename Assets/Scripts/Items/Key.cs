@@ -6,10 +6,9 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    public int count = 0;
-
+    private int count = 0;
     private TextMeshProUGUI text;
-
+    private SetitemsUI setitems;
     public TextMeshProUGUI Text
     {
         set
@@ -17,17 +16,30 @@ public class Key : MonoBehaviour
             text= value;
         }
     }
-    public void eatPancake()
+    public SetitemsUI SetItem
     {
-        //anim
+        set
+        {
+            setitems= value;
+        }
+    }
+    public void useKey()
+    {
         count--;
         if (count == 0)
         {
-            //destroy
+            gameObject.active = false;
+            setitems.removeItem("key");
             return;
         }
         text.text = count.ToString();
 
+    }
+    private void Update()
+    {
+        if(Input.GetMouseButton(0)) {
+            useKey();
+        }
     }
 
 

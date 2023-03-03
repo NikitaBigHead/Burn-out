@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class GetItem : MonoBehaviour
@@ -15,6 +16,7 @@ public class GetItem : MonoBehaviour
     private GameObject Key;
 
     private UIGameObjectHandler handlerCounter;
+    private SetitemsUI setitems;
     private TextMeshProUGUI pancakeCount;
     private TextMeshProUGUI keyCount;
 
@@ -29,6 +31,7 @@ public class GetItem : MonoBehaviour
         Pancake = player.transform.Find("Pancake").gameObject;
         Key = player.transform.Find("Key").gameObject;
 
+        setitems = GetComponentInParent<SetitemsUI>();
         handlerCounter = GetComponentInParent<UIGameObjectHandler>();
         pancakeCount=handlerCounter.gameObjects[4].GetComponent<TextMeshProUGUI>();
         keyCount = handlerCounter.gameObjects[5].GetComponent<TextMeshProUGUI>();
@@ -51,7 +54,8 @@ public class GetItem : MonoBehaviour
         
         clearItems();
         Pancake.active = true;
-        pancake.count = Convert.ToInt32( pancakeCount);
+        pancake.Text = pancakeCount;
+        pancake.SetItem = setitems;
         
     }
     public void getPan()
@@ -68,7 +72,8 @@ public class GetItem : MonoBehaviour
     {
         clearItems();
         Key.active = true;
-        key.count = Convert.ToInt32(keyCount);
+        key.Text = keyCount;
+        key.SetItem = setitems;
 
     }
 
