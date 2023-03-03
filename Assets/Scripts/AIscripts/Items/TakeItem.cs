@@ -21,10 +21,7 @@ public class TakeItem : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         setItem = GameObject.FindGameObjectWithTag("UI").GetComponent<SetitemsUI>();
-
         hint = player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
-        //panel = GameObject.FindGameObjectWithTag("Hint");
-
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

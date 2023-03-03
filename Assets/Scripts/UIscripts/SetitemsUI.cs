@@ -47,6 +47,7 @@ public class SetitemsUI : MonoBehaviour
     {
 
         string key = item.key;
+
         if(key == "pancake")
         {
             if (countPancake == 0)
@@ -55,7 +56,6 @@ public class SetitemsUI : MonoBehaviour
             }
             countPancake++;
             countIcons[key].GetComponent<TextMeshProUGUI>().text = countPancake.ToString();
-
         }
         else if (key == "key")
         {
@@ -63,8 +63,8 @@ public class SetitemsUI : MonoBehaviour
             {
                 icons[key].active = true;
             }
-            countPancake++;
-            countIcons[key].GetComponent<TextMeshProUGUI>().text = countPancake.ToString();
+            countKeys++;
+            countIcons[key].GetComponent<TextMeshProUGUI>().text = countKeys.ToString();
         }
         else if(key == "pan")
         {
@@ -77,7 +77,19 @@ public class SetitemsUI : MonoBehaviour
     }
     public void removeItem(string key)
     {
+        if (key == "pancake")
+        {
+            icons[key].active = false;
+            
 
+        }
+        else if (key == "key")
+        {
+            icons[key].active = false;
+
+            //countIcons[key].GetComponent<TextMeshProUGUI>().text = countKeys.ToString();
+        }
+        
     }
     public int getCountKey(List<Item>items,string key)
     {
