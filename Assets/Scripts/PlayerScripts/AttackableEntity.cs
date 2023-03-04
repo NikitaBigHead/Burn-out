@@ -10,6 +10,7 @@ public class AttackableEntity : MonoBehaviour
 
     protected bool invincible = false;
 
+    [SerializeField]
     protected OnDamageReceive onDamageReceive;
     private NavMeshAgent navMeshAgent;  
 
@@ -38,7 +39,7 @@ public class AttackableEntity : MonoBehaviour
 
     }
 
-    public void RecieveHeal(float value)
+    public virtual void RecieveHeal(float value)
     {
         health += value;
     }

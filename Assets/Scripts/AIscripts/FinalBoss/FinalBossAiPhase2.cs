@@ -13,7 +13,8 @@ public class FinalBossAiPhase2 : MonoBehaviour
         RunningWithAcceleration,
         Waiting,
         PrepareToWaveAttack,
-        WaveAttack
+        WaveAttack,
+        Death
     }
 
     private State state = State.Waiting;
@@ -132,6 +133,22 @@ public class FinalBossAiPhase2 : MonoBehaviour
                 animator.Play("IdleAnimation");
                 break;
 
+            case State.Death:
+                break;
+        }
+    }
+
+    public void OnDeath()
+    {
+        state = State.Death;
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<AttackableEntity>().RecieveDamage(damage);
         }
     }
 

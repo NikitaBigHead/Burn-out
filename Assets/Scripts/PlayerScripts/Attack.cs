@@ -12,7 +12,7 @@ public class Attack : MonoBehaviour
     public Animator animator;
 
     public string animation;
-    private int layer = 0;
+    protected int layer = 0;
     public float offset;//смещение связанное с мышью
 
     public bool isAttacked = false;
@@ -23,8 +23,8 @@ public class Attack : MonoBehaviour
 
     public SpriteRenderer spriteRendererPan;
 
-    private Collider2D collider;
-    private bool isCanAttack = true;
+    protected Collider2D collider;
+    protected bool isCanAttack = true;
 
     private void Awake()
     {
@@ -82,7 +82,7 @@ public class Attack : MonoBehaviour
             }
         }
     }
-    private void disableCollider()
+    protected void disableCollider()
     {
         animator.Play("Empty");
         spriteRendererPan.color = Color.gray;
@@ -90,7 +90,7 @@ public class Attack : MonoBehaviour
         collider.enabled = false;
         Invoke("enableAttack",delayAttack);
     }
-    private void enableAttack()
+    protected void enableAttack()
     {
         isCanAttack = true;
     }

@@ -39,7 +39,7 @@ public class TutorialScript : MonoBehaviour
 
     private void Awake()
     {
-        if (StateController.tutorialComplited) Destroy(this.gameObject);
+        if (PlayerData.tutorialComplited) Destroy(this.gameObject);
     }
 
     void Start()
@@ -113,7 +113,7 @@ public class TutorialScript : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         tutorialUI.SetActive(false);
-        StateController.tutorialComplited = true;
+        PlayerData.tutorialComplited = true;
         door.open = true;
         state = State.End;
     }

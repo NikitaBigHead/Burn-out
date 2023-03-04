@@ -4,9 +4,22 @@ using UnityEngine;
 
 public static class PlayerData 
 {
+    // Cutscene State
+    public static bool cutsceneComplited = false;
+    //
+    // Tutorial State
+    public static bool tutorialComplited = false;
+    //
+    // Player Health
+    public static float playerCurrentHealth = 100;
+    //
+    // Player Health
+    public static float playerMaxHealth = 100;
+    //
     private static GameObject prefabName;
     //private static List<string> list;
     private static List<Item> list = new List<Item>();
+
     public static GameObject prefab
     {
         get
