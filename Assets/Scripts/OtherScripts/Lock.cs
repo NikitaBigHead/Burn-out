@@ -8,7 +8,7 @@ public class Lock : MonoBehaviour
 {
     public string text = "Нажмите [E], чтобы открыть замок";
     private TextMeshProUGUI hint;
-
+    private GameObject player;
     private int needKeys = 3;
     private bool triggered;
     private GameObject door;
@@ -16,8 +16,9 @@ public class Lock : MonoBehaviour
     private SetitemsUI setitems;
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         setitems =  GameObject.FindGameObjectWithTag("UI").GetComponent<SetitemsUI>();
-        hint = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
+        hint = player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
         door = transform.parent.transform.GetChild(2).gameObject;//door
     }
     private void OnTriggerExit2D(Collider2D collision)
