@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttackablePlayer : AttackableEntity
 {
+    public float maxHealth = 100f;
+
     protected new void Start()
     {
         onDamageReceive = gameObject.GetComponent<PlayerOnHit>();
@@ -15,11 +17,17 @@ public class AttackablePlayer : AttackableEntity
         if (!invincible)
         {
             this.invincible = true;
-            ((PlayerOnHit)onDamageReceive).OnHit(health, 100f);
+            ((PlayerOnHit)onDamageReceive).OnHit(health, maxHealth);
             health -= value;
             if (health <= 0) OnDeath();
             Invoke("InvincibilityEnd", invincibilityDelay);
         }
+    }
+
+    public override void RecieveHeal(float value)
+    {
+        health += value;
+        if (health > maxHealth) health = maxHealth;
     }
 
     protected override void InvincibilityEnd()

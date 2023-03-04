@@ -22,8 +22,8 @@ public class Door : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (open)
-            SceneManager.LoadScene(Scene);
+        if (collision.gameObject.tag == "Player" && open)
+            SceneLoader.LoadScene(Scene);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
