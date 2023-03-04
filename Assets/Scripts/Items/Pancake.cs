@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class Pancake : MonoBehaviour
 {
-  
+    public int heal = 10;
     private SetitemsUI setitems;
-
+    private AttackableEntity attackableEntity;
    
     public SetitemsUI SetItem
     {
@@ -18,6 +18,10 @@ public class Pancake : MonoBehaviour
             setitems = value;
         }
     }
+    private void Awake()
+    {
+        attackableEntity = GameObject.Find("Player").GetComponent<AttackableEntity>();
+    }
     private void Start()
     {
         Debug.Log(setitems);
@@ -25,13 +29,15 @@ public class Pancake : MonoBehaviour
     public void eatPancake()
     {
         setitems.subtractItem("pancake");
+        attackableEntity.RecieveHeal(10);
+
         //anim
         //count--;
         //if (count == 0)
         //{
-          //  //gameObject.active = false;
-            //setitems.subtractItem("pancake");
-            //return;
+        //  //gameObject.active = false;
+        //setitems.subtractItem("pancake");
+        //return;
         //}
         //text.text = count.ToString();
 
