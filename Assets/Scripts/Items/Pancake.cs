@@ -7,16 +7,10 @@ using UnityEngine;
 
 public class Pancake : MonoBehaviour
 {
-    private int count = 0;
-    private TextMeshProUGUI text;
+  
     private SetitemsUI setitems;
-    public TextMeshProUGUI Text
-    {
-        set
-        {
-            text = value;
-        }
-    }
+
+   
     public SetitemsUI SetItem
     {
         set
@@ -24,22 +18,27 @@ public class Pancake : MonoBehaviour
             setitems = value;
         }
     }
+    private void Start()
+    {
+        Debug.Log(setitems);
+    }
     public void eatPancake()
     {
+        setitems.subtractItem("pancake");
         //anim
-        count--;
-        if (count == 0)
-        {
-            gameObject.active = false;
-            setitems.removeItem("pancake");
-            return;
-        }
-        text.text = count.ToString();
+        //count--;
+        //if (count == 0)
+        //{
+          //  //gameObject.active = false;
+            //setitems.subtractItem("pancake");
+            //return;
+        //}
+        //text.text = count.ToString();
 
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             eatPancake();
         }

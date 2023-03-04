@@ -33,6 +33,7 @@ public class GetItem : MonoBehaviour
 
         setitems = GetComponentInParent<SetitemsUI>();
         handlerCounter = GetComponentInParent<UIGameObjectHandler>();
+
         pancakeCount=handlerCounter.gameObjects[4].GetComponent<TextMeshProUGUI>();
         keyCount = handlerCounter.gameObjects[5].GetComponent<TextMeshProUGUI>();
 
@@ -40,7 +41,7 @@ public class GetItem : MonoBehaviour
         key = Key.GetComponent<Key>();
     }
     
-    private void clearItems()
+    public void clearItems()
     {
         //Destroy(player.GetComponentInChildren<Transform>());
         Pan.active = false;
@@ -54,7 +55,7 @@ public class GetItem : MonoBehaviour
         
         clearItems();
         Pancake.active = true;
-        pancake.Text = pancakeCount;
+        //pancake.Text = pancakeCount;
         pancake.SetItem = setitems;
         
     }
@@ -72,7 +73,7 @@ public class GetItem : MonoBehaviour
     {
         clearItems();
         Key.active = true;
-        key.Text = keyCount;
+        //key.Text = keyCount;
         key.SetItem = setitems;
 
     }

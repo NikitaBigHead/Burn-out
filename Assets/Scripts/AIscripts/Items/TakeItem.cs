@@ -11,7 +11,6 @@ public class TakeItem : MonoBehaviour
 {
     public string text = "[E] подобрать";
     public string keyItem;
-    public string id;
     private TextMeshProUGUI hint;
     private GameObject player;
     private SetitemsUI setItem;
@@ -47,7 +46,7 @@ public class TakeItem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && isTrigger)
         {
-            Item item = new Item(keyItem, id);
+            Item item = new Item(keyItem);
             PlayerData.listKey = item;
             setItem.addItem(ref item);
             Destroy(this.gameObject);
