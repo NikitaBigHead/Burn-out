@@ -13,6 +13,8 @@ public class AccelerationDropDownProjectile : MonoBehaviour
 
     public Vector2 target;
 
+    private bool negative = false;
+
     [SerializeField]
     private GameObject shadow;
     [SerializeField]
@@ -26,7 +28,11 @@ public class AccelerationDropDownProjectile : MonoBehaviour
     {
         this.size = size;
         this.speed = speed;
-        if (spawnPos.x > targetPos.x) this.speed *= -1;
+        if (spawnPos.x > targetPos.x)
+        {
+            this.speed *= -1;
+            negative = true;
+        }
         eq = Parabola.FindParabola(new Vector2(spawnPos.x, spawnPos.y + height), peakPos, targetPos);
         main.transform.position = new Vector3(spawnPos.x, spawnPos.y + height, 0);
         shadow.transform.position = new Vector3(spawnPos.x, spawnPos.y, 0);
@@ -48,9 +54,10 @@ public class AccelerationDropDownProjectile : MonoBehaviour
         float shadow_y = (main_x - shadow_eq.y) * shadow_eq.x + shadow_eq.z;
         shadow.transform.position = new Vector3(main_x, shadow_y, 0);
 
-        if (main_x > target.x)
+        if (negative)
         {
-            Destroy(this.gameObject);
-        }
+            if (main_x < target.x)
+                Destroy(this.gameObject);
+        } else if (main_x > target.x) Destroy(this.gameObject);
     }
 }
