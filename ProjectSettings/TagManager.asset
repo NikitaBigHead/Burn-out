@@ -12,6 +12,8 @@ TagManager:
   - UI
   - Particle
   - Door
+  - Platform
+  - Game
   layers:
   - Default
   - TransparentFX

@@ -834,6 +834,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 371782527, guid: f1bec867776458146810e26b57519482, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3994285909771319581, guid: f1bec867776458146810e26b57519482, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1340,6 +1344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 15
   invincibilityDelay: 0.25
+  onDamageReceive: {fileID: 0}
 --- !u!50 &494492593
 Rigidbody2D:
   serializedVersion: 4
@@ -1900,7 +1905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &900704466
 Transform:
   m_ObjectHideFlags: 0
