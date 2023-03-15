@@ -35,4 +35,9 @@ public class AttackablePlayer : AttackableEntity
         invincible = false;
         onDamageReceive.Stop();
     }
+
+    protected override void OnDeath()
+    {
+        CheckpointManager.LoadCheckpoint();
+    }
 }

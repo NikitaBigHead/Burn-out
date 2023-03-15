@@ -7,10 +7,13 @@ public class SpawnPlayer : MonoBehaviour
 {
     public GameObject player;
 
-    private AttackableEntity attackable;
+    private AttackablePlayer attackable;
     private void Awake()
     {
-        attackable = player.GetComponent<AttackableEntity>();
-        attackable.health = PlayerData.prefab.GetComponent<AttackableEntity>().health;
+        player = GameObject.FindGameObjectWithTag("Player");
+        attackable = player.GetComponent<AttackablePlayer>();
+        attackable.health = PlayerData.playerCurrentHealth;
+        attackable.maxHealth = PlayerData.playerMaxHealth;
+        player.transform.position = PlayerData.nextScenePosition;
     }
 }

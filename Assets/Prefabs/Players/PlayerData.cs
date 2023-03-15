@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,12 @@ public static class PlayerData
     // Player Health
     public static float playerMaxHealth = 100;
     //
+    //
+    public static Vector3 nextScenePosition = Vector3.zero;
+    //
+
+    public static CheckpointManager.Checkpoint checkpoint = CheckpointManager.Checkpoint.StartLocation;
+
     private static GameObject prefabName;
     //private static List<string> list;
     private static List<Item> list = new List<Item>();
@@ -32,6 +39,14 @@ public static class PlayerData
         }
     }
     
+    public static void LoadSavedItems(List<Item> items)
+    {
+        list = new List<Item>();
+        items.ForEach((item) =>
+        {
+            list.Add((Item)item.Clone());
+        });
+    }
     public static Item listKey
     {
         set
@@ -95,12 +110,19 @@ public static class PlayerData
     
 
 }
-public class Item
+public class Item: ICloneable
 {
     public int count = 0;
     public string key;
     public Item(string key)
     {
         this.key = key;
+    }
+
+    public object Clone()
+    {
+        Item clone = new Item(key);
+        clone.count = this.count;
+        return clone;
     }
 }

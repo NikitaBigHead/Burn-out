@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:TextField picking-mode="Ignore" label="Scene" value="filler text" text="filler text" binding-path="Scene" />
+    <ui:GroupBox>
+        <ui:Toggle label="Выставить значение вручную" style="justify-content: space-around; flex-direction: row;" />
+        <uie:Vector3Field label="Position on next Scene" binding-path="locationOnNextScene" />
+        <uie:EnumField label="Position on next Scene" value="Center" />
+    </ui:GroupBox>
+    <ui:TextField picking-mode="Ignore" label="Hint Text" value="filler text" text="filler text" binding-path="text" />
+    <ui:Toggle label="Open" binding-path="open" />
+</ui:UXML>
