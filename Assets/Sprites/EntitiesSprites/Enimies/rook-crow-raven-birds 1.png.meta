@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: 41a3e7c9958ea81418961d3d9bc32981
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rook-crow-raven-birds 1_1
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 521
+        width: 420
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bedb0c2ae32e5a4db87a55c151016c9
+      internalID: -1086564710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rook-crow-raven-birds 1_12
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 519
+        width: 420
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10ebf7e008022047875a95fb52b4c53
+      internalID: -1567310741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rook-crow-raven-birds 1_76
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 420
+        height: 503
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e81c14decc2db44dbcc9ef050d24fc0
+      internalID: 1799942327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rook-crow-raven-birds 1_83
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 6
+        width: 420
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47945678babc20d40b8fce99f798a2ba
+      internalID: -1995424408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      rook-crow-raven-birds 1_0: 2093046740
+      rook-crow-raven-birds 1_1: -1086564710
+      rook-crow-raven-birds 1_10: 1069769541
+      rook-crow-raven-birds 1_100: 1637623653
+      rook-crow-raven-birds 1_101: 1881303786
+      rook-crow-raven-birds 1_102: 937038304
+      rook-crow-raven-birds 1_103: 1343030887
+      rook-crow-raven-birds 1_104: 1759016593
+      rook-crow-raven-birds 1_105: 1192265593
+      rook-crow-raven-birds 1_106: 1800761574
+      rook-crow-raven-birds 1_107: -19843641
+      rook-crow-raven-birds 1_108: -84187477
+      rook-crow-raven-birds 1_109: -1917928043
+      rook-crow-raven-birds 1_11: -1414819029
+      rook-crow-raven-birds 1_110: -8667281
+      rook-crow-raven-birds 1_111: 378882194
+      rook-crow-raven-birds 1_112: -515048720
+      rook-crow-raven-birds 1_113: -1093241848
+      rook-crow-raven-birds 1_114: 472882709
+      rook-crow-raven-birds 1_115: 1569025824
+      rook-crow-raven-birds 1_116: -547608121
+      rook-crow-raven-birds 1_117: 448055395
+      rook-crow-raven-birds 1_118: -688608820
+      rook-crow-raven-birds 1_119: 1581242405
+      rook-crow-raven-birds 1_12: -1567310741
+      rook-crow-raven-birds 1_120: 1831946926
+      rook-crow-raven-birds 1_121: 1453634587
+      rook-crow-raven-birds 1_122: 1622606927
+      rook-crow-raven-birds 1_123: -2022503278
+      rook-crow-raven-birds 1_124: -2052340069
+      rook-crow-raven-birds 1_125: -1060665077
+      rook-crow-raven-birds 1_126: 282990012
+      rook-crow-raven-birds 1_127: -35778994
+      rook-crow-raven-birds 1_128: -1460281030
+      rook-crow-raven-birds 1_129: -1558227017
+      rook-crow-raven-birds 1_13: -583868552
+      rook-crow-raven-birds 1_130: -1709785885
+      rook-crow-raven-birds 1_131: 386191883
+      rook-crow-raven-birds 1_14: 517594824
+      rook-crow-raven-birds 1_15: -1837132147
+      rook-crow-raven-birds 1_16: -1753477714
+      rook-crow-raven-birds 1_17: -2066101403
+      rook-crow-raven-birds 1_18: -415475339
+      rook-crow-raven-birds 1_19: -396930684
+      rook-crow-raven-birds 1_2: 1669817013
+      rook-crow-raven-birds 1_20: 574546188
+      rook-crow-raven-birds 1_21: 1859434415
+      rook-crow-raven-birds 1_22: 1097055239
+      rook-crow-raven-birds 1_23: 1431452951
+      rook-crow-raven-birds 1_24: 271743262
+      rook-crow-raven-birds 1_25: 1664213035
+      rook-crow-raven-birds 1_26: -768682312
+      rook-crow-raven-birds 1_27: -1872737651
+      rook-crow-raven-birds 1_28: -1349043984
+      rook-crow-raven-birds 1_29: 413076912
+      rook-crow-raven-birds 1_3: 1571273885
+      rook-crow-raven-birds 1_30: -561464325
+      rook-crow-raven-birds 1_31: 947213662
+      rook-crow-raven-birds 1_32: -1758134078
+      rook-crow-raven-birds 1_33: -472267005
+      rook-crow-raven-birds 1_34: 1731292369
+      rook-crow-raven-birds 1_35: -273192332
+      rook-crow-raven-birds 1_36: 1532771174
+      rook-crow-raven-birds 1_37: 465609089
+      rook-crow-raven-birds 1_38: 2082658057
+      rook-crow-raven-birds 1_39: 1313269262
+      rook-crow-raven-birds 1_4: 919471899
+      rook-crow-raven-birds 1_40: 1006258955
+      rook-crow-raven-birds 1_41: 732237196
+      rook-crow-raven-birds 1_42: -561997540
+      rook-crow-raven-birds 1_43: 1237492244
+      rook-crow-raven-birds 1_44: 602006228
+      rook-crow-raven-birds 1_45: 566296379
+      rook-crow-raven-birds 1_46: -872748864
+      rook-crow-raven-birds 1_47: -615636176
+      rook-crow-raven-birds 1_48: 1060619341
+      rook-crow-raven-birds 1_49: -1936563204
+      rook-crow-raven-birds 1_5: -1332805451
+      rook-crow-raven-birds 1_50: -1351691010
+      rook-crow-raven-birds 1_51: -972784498
+      rook-crow-raven-birds 1_52: 1612869946
+      rook-crow-raven-birds 1_53: -953833917
+      rook-crow-raven-birds 1_54: 821432923
+      rook-crow-raven-birds 1_55: 1158064379
+      rook-crow-raven-birds 1_56: 1573490436
+      rook-crow-raven-birds 1_57: 1892872314
+      rook-crow-raven-birds 1_58: -1614147513
+      rook-crow-raven-birds 1_59: 846147737
+      rook-crow-raven-birds 1_6: -1959282804
+      rook-crow-raven-birds 1_60: -1198228993
+      rook-crow-raven-birds 1_61: 1291795804
+      rook-crow-raven-birds 1_62: 346187708
+      rook-crow-raven-birds 1_63: 421243271
+      rook-crow-raven-birds 1_64: 2099524380
+      rook-crow-raven-birds 1_65: 78740158
+      rook-crow-raven-birds 1_66: -857506094
+      rook-crow-raven-birds 1_67: 911327539
+      rook-crow-raven-birds 1_68: 1052311223
+      rook-crow-raven-birds 1_69: -1963966241
+      rook-crow-raven-birds 1_7: 704117142
+      rook-crow-raven-birds 1_70: -1979641116
+      rook-crow-raven-birds 1_71: 936560101
+      rook-crow-raven-birds 1_72: -1951260496
+      rook-crow-raven-birds 1_73: -699690212
+      rook-crow-raven-birds 1_74: -1192133441
+      rook-crow-raven-birds 1_75: -1352970033
+      rook-crow-raven-birds 1_76: 1799942327
+      rook-crow-raven-birds 1_77: -1874139731
+      rook-crow-raven-birds 1_78: -562506859
+      rook-crow-raven-birds 1_79: -547364533
+      rook-crow-raven-birds 1_8: -1386193399
+      rook-crow-raven-birds 1_80: 215105297
+      rook-crow-raven-birds 1_81: -654020486
+      rook-crow-raven-birds 1_82: -450532225
+      rook-crow-raven-birds 1_83: -1995424408
+      rook-crow-raven-birds 1_84: 626773492
+      rook-crow-raven-birds 1_85: -64191281
+      rook-crow-raven-birds 1_86: 1638592790
+      rook-crow-raven-birds 1_87: -804648010
+      rook-crow-raven-birds 1_88: -951818058
+      rook-crow-raven-birds 1_89: 1548157572
+      rook-crow-raven-birds 1_9: 2061182491
+      rook-crow-raven-birds 1_90: -2073423700
+      rook-crow-raven-birds 1_91: 1740513467
+      rook-crow-raven-birds 1_92: 2027557504
+      rook-crow-raven-birds 1_93: -356319343
+      rook-crow-raven-birds 1_94: 21701684
+      rook-crow-raven-birds 1_95: 1272034973
+      rook-crow-raven-birds 1_96: 1501167727
+      rook-crow-raven-birds 1_97: -355955106
+      rook-crow-raven-birds 1_98: 1286875277
+      rook-crow-raven-birds 1_99: -223076590
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

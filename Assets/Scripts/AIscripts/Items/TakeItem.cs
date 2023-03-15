@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,9 +20,18 @@ public class TakeItem : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        setItem = GameObject.FindGameObjectWithTag("UI").GetComponent<SetitemsUI>();
         hint = player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
+        try
+        {
+            setItem = GameObject.FindGameObjectWithTag("UI").GetComponent<SetitemsUI>();
+        }
+        catch(NullReferenceException ex)
+        {
+            setItem= null;
+        }
+
     }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
 
@@ -48,7 +58,7 @@ public class TakeItem : MonoBehaviour
         {
             Item item = new Item(keyItem);
             PlayerData.listKey = item;
-            setItem.addItem(ref item);
+            if(setItem!=null)setItem.addItem(ref item);
             Destroy(this.gameObject);
 
         }
