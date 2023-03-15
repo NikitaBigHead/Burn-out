@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour
 
     private Collider2D collider;
     public TextMeshProUGUI text;
+
+    private Animator animator;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -49,6 +55,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.collider.CompareTag("Platform"))
         {
+            animator.Play("Jump");
+
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             collider.enabled = false;
         }

@@ -94,12 +94,5 @@ public class Attack : MonoBehaviour
     {
         isCanAttack = true;
     }
-    /*
-    IEnumerator stopGameObject(Rigidbody2D rb)
-    {
-        rb.velocity = Vector2.zero;
-        yield return new  WaitForSeconds(enemyFlightTime);
-    }
-    */
 
 }

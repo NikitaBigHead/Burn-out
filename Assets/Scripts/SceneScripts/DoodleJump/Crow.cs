@@ -6,7 +6,7 @@ using UnityEngine;
 public class Crow : MonoBehaviour
 {
     public float speed = 3.0f;
-    public float range = 20f;
+    private float range = 20f;
     public float damage = 5f;
     private Vector2 direction;
 
@@ -37,10 +37,11 @@ public class Crow : MonoBehaviour
 
     IEnumerator startAnim()
     {
-        while(sign*transform.position.x>sign*(startPos - 1.95 * sign))
+        while(sign*transform.position.x>sign*(startPos - 2.95 * sign))
         {
+            float y = Mathf.Cos(transform.position.x);
             transform.position = Vector2.Lerp(transform.position, 
-                new Vector2(startPos - 2 * sign, playerCords.position.y), startSpeed * Time.deltaTime);
+                new Vector2(startPos - 3 * sign, playerCords.position.y + y ), startSpeed * Time.deltaTime);
             yield return new WaitForFixedUpdate();
         }
 
@@ -49,26 +50,34 @@ public class Crow : MonoBehaviour
     }
     IEnumerator moving() {
 
-        while (range >= 0f)
+        while (Mathf.Abs(playerCords.position.x - transform.position.x) >= 0.15f)
         {
-
+            direction = (playerCords.position - transform.position).normalized;
             Vector3 translation = new Vector3(direction.x * speed , direction.y * speed, 0) * Time.deltaTime;
             transform.position += translation;
-            range -= translation.magnitude;
             yield return new WaitForFixedUpdate(); 
+        }
+        while (range >= 0)
+        {
+            Vector3 translation = new Vector3(direction.x * speed, direction.y * speed, 0) * Time.deltaTime;
+            transform.position += translation;
+            range -= translation.magnitude;
+            yield return new WaitForFixedUpdate();
         }
         Destroy(this.gameObject);
         
     }
     private void Update()
     {
-        transform.position = new Vector2(transform.position.x, playerCords.position.y);
+        //transform.position = new Vector2(transform.position.x, playerCords.position.y);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AttackableEntity attackableEntity = collision.GetComponent<AttackableEntity>();
+        
         if (collision.tag == "Player")
         {
+
+            AttackableEntity attackableEntity = collision.GetComponent<AttackablePlayer>();
             attackableEntity.RecieveDamage(damage);
         }
 

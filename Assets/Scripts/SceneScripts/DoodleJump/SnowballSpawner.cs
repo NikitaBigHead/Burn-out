@@ -9,7 +9,7 @@ public class SnowballSpawner : MonoBehaviour
 {
     public GameObject snowBallPrefab;
     public Transform playerCords;
-    public float interval = 3f;
+    private float interval = 5f;
 
     public float height = 10f;
 
@@ -24,25 +24,33 @@ public class SnowballSpawner : MonoBehaviour
     }
 
 
+    IEnumerator  dropSnowBall(float interval, Transform cords)
+    {
+        yield return new WaitForSeconds(interval-0.2f);
+        GameObject snowBall = Instantiate(snowBallPrefab,
+         cords.position
+         , Quaternion.identity);
+        Vector2 direction = new Vector2(0, -1f);
+        snowBall.GetComponent<SimpleProjectile>().Launch(projectileSpeed, projectileSize, projectileRange, direction);
 
+
+    }
     IEnumerator  spawn()
     {
         while (true)
         {
-            GameObject snowBall = Instantiate(snowBallPrefab,
-                new Vector2(playerCords.position.x, playerCords.position.y + height)
-                , Quaternion.identity);
-            Vector2 direction = new Vector2(0, -1f);
-            snowBall.GetComponent<SimpleProjectile>().Launch(projectileSpeed, projectileSize, projectileRange, direction);
 
+            Vector2 cords = new Vector2(playerCords.position.x, Camera.main.transform.position.y + 5.2f);
             GameObject attentionObject = Instantiate(attentionPrefab,
-                new Vector2(playerCords.position.x, Camera.main.transform.position.y + 5.2f),
+               cords,
                 Quaternion.identity);
 
             attentionObject.transform.parent = Camera.main.transform;
             Attention attention= attentionObject.GetComponent<Attention>();
-            attention.Interval = interval - 2.5f;
+            attention.Interval =2f;
             attention.StartAttention();
+
+            StartCoroutine( dropSnowBall(2f, attention.transform));
 
             yield return new WaitForSeconds(interval);
         }
