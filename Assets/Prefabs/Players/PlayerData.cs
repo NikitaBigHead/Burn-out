@@ -5,6 +5,9 @@ using UnityEngine;
 
 public static class PlayerData 
 {
+    // Test State on Village
+    public static bool villageBrawlComplited = false;
+    //
     // Cutscene State
     public static bool cutsceneComplited = false;
     //

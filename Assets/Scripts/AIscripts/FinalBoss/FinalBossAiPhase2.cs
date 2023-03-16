@@ -138,7 +138,7 @@ public class FinalBossAiPhase2 : MonoBehaviour
         }
     }
 
-    public void OnDeath()
+    public void OnDeath(GameObject sender)
     {
         state = State.Death;
         

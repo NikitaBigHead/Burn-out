@@ -12,13 +12,32 @@ public class AttackableEntity : MonoBehaviour
 
     [SerializeField]
     protected OnDamageReceive onDamageReceive;
-    private NavMeshAgent navMeshAgent;  
+    private NavMeshAgent navMeshAgent;
+
+    public delegate void ActionOnDeath(GameObject sender);
+    //public Dictionary<int, ActionOnDeath> actionsOnDeaths = new Dictionary<int, ActionOnDeath>();
+    public List<ActionOnDeath> actionsOnDeaths = new List<ActionOnDeath>();
+
+    /// <summary>
+    /// Добавление события вызываемого при смерти
+    /// </summary>
+    /// <param name="action">Событие длжно принимать единственный аргумент GameObject</param>
+    /// <param name="prioritet">Приоритет вызова, чем больше число, тем раньше вызовется метод</param>
+    public void AddActionOnDeath(ActionOnDeath action, int prioritet)
+    {
+        actionsOnDeaths.Add(action);
+    }
+
+    //public void InsertActionOnDeath
 
     protected void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         onDamageReceive = gameObject.GetComponent<OnDamageReceive>();
         if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<OnDamageReceive>();
+
+        // Добовляем метод удаления в список методов, вызываемых при смерти
+        actionsOnDeaths.Add(Destroy);
     }
 
     public virtual void RecieveDamage(float value)
@@ -46,7 +65,8 @@ public class AttackableEntity : MonoBehaviour
 
     protected virtual void OnDeath()
     {
-        Destroy(this.gameObject);
+        foreach (ActionOnDeath actionOnDeath in actionsOnDeaths)
+            actionOnDeath(this.gameObject);
     }
 
     protected virtual void InvincibilityEnd()

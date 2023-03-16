@@ -19,6 +19,7 @@ public class AttackableFinalBoss1 : AttackableEntity
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         onDamageReceive = gameObject.GetComponent<OnDamageReceive>();
         if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<Blinking>();
+        actionsOnDeaths.Add(WhenDeath);
     }
 
     public override void RecieveDamage(float value)
@@ -39,12 +40,13 @@ public class AttackableFinalBoss1 : AttackableEntity
         onDamageReceive.Stop();
     }
 
-    protected override void OnDeath()
+    protected static void WhenDeath(GameObject sender)
     {
-        this.health = 100;
-        Camera.main.transform.SetParent(player.transform);
+        AttackableFinalBoss1 attackableFinalBoss1 = sender.GetComponent<AttackableFinalBoss1>();
+        attackableFinalBoss1.health = 100;
+        Camera.main.transform.SetParent(attackableFinalBoss1.player.transform);
         Camera.main.transform.localPosition = new Vector3(0, 0, -10);
-        phase1.SetActive(false);
-        phase2.SetActive(true);
+        attackableFinalBoss1.phase1.SetActive(false);
+        attackableFinalBoss1.phase2.SetActive(true);
     }
 }

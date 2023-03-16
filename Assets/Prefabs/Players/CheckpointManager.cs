@@ -77,4 +77,35 @@ public static class CheckpointManager
                 break;
         }
     }
+
+    public static void LoadCheckpoint(GameObject sender)
+    {
+        PlayerData.playerCurrentHealth = health;
+        PlayerData.playerMaxHealth = maxHealth;
+        PlayerData.LoadSavedItems(savedItems);
+        switch (PlayerData.checkpoint)
+        {
+            case Checkpoint.StartLocation:
+                SceneLoader.LoadScene("StartLocation", SceneLoader.Position.VillageNearHouseEntrance);
+                break;
+            case Checkpoint.VillageToStartLocation:
+                SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearHouseEntrance);
+                break;
+            case Checkpoint.VillageToBarn:
+                SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearBarnEntrance);
+                break;
+            case Checkpoint.VillageToPillar:
+                SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearPillarEntrance);
+                break;
+            case Checkpoint.VillageToCoral:
+                SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearCoralEntrance);
+                break;
+            case Checkpoint.VillageToCastle:
+                SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearCastleEntrance);
+                break;
+            case Checkpoint.BarnEnd:
+                SceneLoader.LoadScene("Barnlocation", SceneLoader.Position.BarnAfterBosss);
+                break;
+        }
+    }
 }

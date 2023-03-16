@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 33536774}
   - component: {fileID: 33536773}
   m_Layer: 0
-  m_Name: ToCoral
+  m_Name: WayToCoral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22980,6 +22980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337091201}
+  - component: {fileID: 1337091202}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -23014,6 +23015,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1337091202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337091200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1e3c78a9e5a4b489b42c06f930ce9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCount: 0
 --- !u!1001 &1401358154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23076,6 +23090,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8215780146612370381, guid: e0680b6542529a34dbef2134fee20c2e, type: 3}
   m_PrefabInstance: {fileID: 1401358154}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1438003638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1438003640}
+  - component: {fileID: 1438003639}
+  m_Layer: 0
+  m_Name: VillageBrawl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1438003639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438003638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b956c5ab1aee440b577a04458b8da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allDoors: 1
+  doors: []
+  enemies: {fileID: 1337091200}
+--- !u!4 &1438003640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438003638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498250755
 GameObject:
   m_ObjectHideFlags: 0
@@ -23246,7 +23307,7 @@ GameObject:
   - component: {fileID: 1581020766}
   - component: {fileID: 1581020765}
   m_Layer: 0
-  m_Name: ToCastle
+  m_Name: WayToCastle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

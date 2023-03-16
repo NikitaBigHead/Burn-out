@@ -12,6 +12,7 @@ public class AttackableFinalBoss2 : AttackableEntity
         if (bossAi == null) bossAi = GetComponent<FinalBossAiPhase2>();
         onDamageReceive = gameObject.GetComponent<OnDamageReceive>();
         if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<Blinking>();
+        actionsOnDeaths.Add(bossAi.OnDeath);
     }
 
     public override void RecieveDamage(float value)
@@ -30,10 +31,5 @@ public class AttackableFinalBoss2 : AttackableEntity
     {
         invincible = false;
         onDamageReceive.Stop();
-    }
-
-    protected override void OnDeath()
-    {
-        bossAi.OnDeath();
     }
 }

@@ -10,6 +10,7 @@ public class AttackablePlayer : AttackableEntity
     {
         onDamageReceive = gameObject.GetComponent<PlayerOnHit>();
         if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<PlayerOnHit>();
+        actionsOnDeaths.Add(CheckpointManager.LoadCheckpoint);
     }
 
     public override void RecieveDamage(float value)
@@ -34,10 +35,5 @@ public class AttackablePlayer : AttackableEntity
     {
         invincible = false;
         onDamageReceive.Stop();
-    }
-
-    protected override void OnDeath()
-    {
-        CheckpointManager.LoadCheckpoint();
     }
 }
