@@ -19,8 +19,9 @@ public class AttackablePlayer : AttackableEntity
         {
             this.invincible = true;
             ((PlayerOnHit)onDamageReceive).OnHit(health, maxHealth);
-            health -= value;
+            health -= value;   
             if (health <= 0) OnDeath();
+            PlayerData.playerCurrentHealth = health;
             Invoke("InvincibilityEnd", invincibilityDelay);
         }
     }

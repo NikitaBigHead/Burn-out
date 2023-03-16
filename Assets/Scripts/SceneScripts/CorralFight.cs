@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 
-public class VillageBrawlScript : MonoBehaviour
+public class CorralFight : MonoBehaviour
 {
     /// <summary>
     /// Режим закрытия и открытия дверей и проходов в другие сцены
@@ -20,7 +19,7 @@ public class VillageBrawlScript : MonoBehaviour
     private void Awake()
     {
         enemies.SetActive(false);
-        if (PlayerData.villageBrawlComplited) Destroy(gameObject);
+        if (PlayerData.corralBossFightComplited) Destroy(gameObject);
     }
 
     private void Start()
@@ -45,7 +44,7 @@ public class VillageBrawlScript : MonoBehaviour
 
     public void Complite()
     {
-        PlayerData.villageBrawlComplited = true;
+        PlayerData.corralBossFightComplited = true;
         enemies.SetActive(false);
         if (allDoors)
             foreach (Door door in FindObjectsByType<Door>(FindObjectsSortMode.None))

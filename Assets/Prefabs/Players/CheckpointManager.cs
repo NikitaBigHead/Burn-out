@@ -11,6 +11,9 @@ public static class CheckpointManager
 
         // В доме
         StartLocation,
+        
+        // В доме у выхода
+        StartLocationToVillage,
 
         // Вход в дом
         VillageToStartLocation,
@@ -22,10 +25,19 @@ public static class CheckpointManager
         VillageToPillar,
         
         // Вход в загон
-        VillageToCoral,
+        VillageToCorral,
         
         // Вход в замок
         VillageToCastle,
+
+        // Из столба в деревню
+        PillarToVillage,
+
+        // Из загона в деревню
+        CorralToVillage,
+
+        // Из замка в деревню
+        CastleToVillage,
 
         // После победы над боссом в амбаре
         BarnEnd
@@ -55,7 +67,10 @@ public static class CheckpointManager
         switch (PlayerData.checkpoint)
         {
             case Checkpoint.StartLocation:
-                SceneLoader.LoadScene("StartLocation", SceneLoader.Position.VillageNearHouseEntrance);
+                SceneLoader.LoadScene("StartLocation", SceneLoader.Position.StartLocationHouseRightSide);
+                break;
+            case Checkpoint.StartLocationToVillage:
+                SceneLoader.LoadScene("StartLocation", SceneLoader.Position.StartLocationNearExit);
                 break;
             case Checkpoint.VillageToStartLocation:
                 SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearHouseEntrance);
@@ -66,11 +81,20 @@ public static class CheckpointManager
             case Checkpoint.VillageToPillar:
                 SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearPillarEntrance);
                 break;
-            case Checkpoint.VillageToCoral:
+            case Checkpoint.VillageToCorral:
                 SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearCoralEntrance);
                 break;
             case Checkpoint.VillageToCastle:
                 SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearCastleEntrance);
+                break;
+            case Checkpoint.PillarToVillage:
+                SceneLoader.LoadScene("PostLocation", SceneLoader.Position.PillarExit);
+                break;
+            case Checkpoint.CorralToVillage:
+                SceneLoader.LoadScene("СorralLocation", SceneLoader.Position.CorralExit);
+                break;
+            case Checkpoint.CastleToVillage:
+                SceneLoader.LoadScene("CastleLocation", SceneLoader.Position.CastleExit);
                 break;
             case Checkpoint.BarnEnd:
                 SceneLoader.LoadScene("Barnlocation", SceneLoader.Position.BarnAfterBosss);
@@ -86,7 +110,10 @@ public static class CheckpointManager
         switch (PlayerData.checkpoint)
         {
             case Checkpoint.StartLocation:
-                SceneLoader.LoadScene("StartLocation", SceneLoader.Position.VillageNearHouseEntrance);
+                SceneLoader.LoadScene("StartLocation", SceneLoader.Position.StartLocationHouseRightSide);
+                break;
+            case Checkpoint.StartLocationToVillage:
+                SceneLoader.LoadScene("StartLocation", SceneLoader.Position.StartLocationNearExit);
                 break;
             case Checkpoint.VillageToStartLocation:
                 SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearHouseEntrance);
@@ -97,11 +124,20 @@ public static class CheckpointManager
             case Checkpoint.VillageToPillar:
                 SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearPillarEntrance);
                 break;
-            case Checkpoint.VillageToCoral:
+            case Checkpoint.VillageToCorral:
                 SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearCoralEntrance);
                 break;
             case Checkpoint.VillageToCastle:
                 SceneLoader.LoadScene("Village", SceneLoader.Position.VillageNearCastleEntrance);
+                break;
+            case Checkpoint.PillarToVillage:
+                SceneLoader.LoadScene("PostLocation", SceneLoader.Position.PillarExit);
+                break;
+            case Checkpoint.CorralToVillage:
+                SceneLoader.LoadScene("СorralLocation", SceneLoader.Position.CorralExit);
+                break;
+            case Checkpoint.CastleToVillage:
+                SceneLoader.LoadScene("CastleLocation", SceneLoader.Position.CastleExit);
                 break;
             case Checkpoint.BarnEnd:
                 SceneLoader.LoadScene("Barnlocation", SceneLoader.Position.BarnAfterBosss);

@@ -8,6 +8,9 @@ public static class PlayerData
     // Test State on Village
     public static bool villageBrawlComplited = false;
     //
+    // JumperBag Fight in CorralLocation
+    public static bool corralBossFightComplited = false;
+    //
     // Cutscene State
     public static bool cutsceneComplited = false;
     //

@@ -15268,6 +15268,14 @@ PrefabInstance:
       propertyPath: Scene
       value: Village
       objectReference: {fileID: 0}
+    - target: {fileID: 1529299984222738732, guid: f3160ac13404c2547a0580ae19686c6d, type: 3}
+      propertyPath: position
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529299984222738732, guid: f3160ac13404c2547a0580ae19686c6d, type: 3}
+      propertyPath: checkpoint
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2311669405948530522, guid: f3160ac13404c2547a0580ae19686c6d, type: 3}
       propertyPath: m_Name
       value: Door
