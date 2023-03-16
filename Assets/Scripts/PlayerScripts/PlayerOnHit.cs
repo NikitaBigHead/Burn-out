@@ -23,18 +23,22 @@ public class PlayerOnHit : OnDamageReceive
     private IEnumerator coroutine;
     private IEnumerator fadeCoroutine;
 
-    private bool stay = false; 
+    // Параметр stay установленный в инспекторе не будет менятся
+    public bool customStayMode = false;
+
+    // Текст не двигается на канвасе
+    public bool stay = false;
 
     private void Start()
     {
         if (sprite == null)
             sprite = GetComponentInChildren<SpriteRenderer>();
         defaultColor = sprite.color;
-        if (Camera.main.transform.parent == transform)
+        if (Camera.main.transform.parent == transform && !customStayMode)
         {
             stay = true;
-            textHealth.rectTransform.localPosition = offset;
         }
+        if (stay) textHealth.rectTransform.localPosition = offset;
     }
 
     public override void OnHit(float health)

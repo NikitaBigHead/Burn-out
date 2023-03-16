@@ -1159,6 +1159,8 @@ MonoBehaviour:
   blinkColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   sprite: {fileID: 1285117976}
   textHealth: {fileID: 1821183330}
+  customStayMode: 1
+  stay: 1
 --- !u!114 &1285117980
 MonoBehaviour:
   m_ObjectHideFlags: 0
