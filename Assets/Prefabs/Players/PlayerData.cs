@@ -11,6 +11,15 @@ public static class PlayerData
     // JumperBag Fight in CorralLocation
     public static bool corralBossFightComplited = false;
     //
+    // Corral Key
+    public static bool corralKeyRecieved = false;
+    //
+    // Castle key
+    public static bool castleKeyRecieved = false;
+    //
+    // Pillar key
+    public static bool pillarKeyRecieved = false;
+    //
     // Cutscene State
     public static bool cutsceneComplited = false;
     //
@@ -23,7 +32,10 @@ public static class PlayerData
     // Player Health
     public static float playerMaxHealth = 100;
     //
+    // Selected item
+    public static string selectedItem = "none";
     //
+    // Next Scene Position
     public static Vector3 nextScenePosition = Vector3.zero;
     //
 

@@ -100,6 +100,8 @@ public class SceneLoader : MonoBehaviour
                 return VillageNearCastleEntrance;
             case Position.VillageNearCoralEntrance:
                 return VillageNearCoralEntrance;
+            case Position.CorralExit:
+                return CorralExit;
             case Position.CastleExit:
                 return CastleExit;
             case Position.PillarExit:

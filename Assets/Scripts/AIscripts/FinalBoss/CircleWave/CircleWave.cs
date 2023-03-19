@@ -5,13 +5,13 @@ using UnityEngine;
 public class CircleWave : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mask;
-    [SerializeField]
     private GameObject sprite;
     [SerializeField]
     private GameObject hitboxSafety;
     [SerializeField]
     private AttackableEntity target;
+
+    private Material material;
 
     public float damage = 5;
 
@@ -34,6 +34,8 @@ public class CircleWave : MonoBehaviour
         harm.OnEnterCollision = HarmTriggerEnter;
         harm.OnExitCollision = HarmTriggerExit;
 
+        material = sprite.GetComponent<SpriteRenderer>().material;
+
         HitboxController safety = hitboxSafety.GetComponent<HitboxController>();
         safety.OnEnterCollision = SafetyTriggerEnter;
         safety.OnExitCollision = SafetyTriggerExit;
@@ -47,7 +49,7 @@ public class CircleWave : MonoBehaviour
         this.damage = damage;
         this.safetyOffset = safetyOffset;
         hitboxSafety.transform.localScale = new Vector3(currentRange - waveThickness - safetyOffset, currentRange - waveThickness - safetyOffset, 1);
-        mask.transform.localScale = new Vector3(currentRange - waveThickness, currentRange - waveThickness, 1);
+        material.SetFloat("_Size", currentRange);
         sprite.transform.localScale = new Vector3(currentRange, currentRange, 1);
     }
 
@@ -57,7 +59,7 @@ public class CircleWave : MonoBehaviour
         float hitboxSafetySize = currentRange - waveThickness - safetyOffset;
         if (hitboxSafetySize < 0) hitboxSafetySize = 0;
         hitboxSafety.transform.localScale = new Vector3(hitboxSafetySize, hitboxSafetySize, 1);
-        mask.transform.localScale = new Vector3(currentRange - waveThickness, currentRange - waveThickness, 1);
+        material.SetFloat("_Size", currentRange);
         sprite.transform.localScale = new Vector3(currentRange, currentRange, 1);
         if (currentRange > maxRange) Destroy(this.gameObject);
         if (inHarm && !inSafe)

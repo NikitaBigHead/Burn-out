@@ -12,6 +12,7 @@ public class DoorToDoodleJump : MonoBehaviour
 
     private void Awake()
     {
+        if (PlayerData.pillarKeyRecieved) Destroy(this);
         player = GameObject.FindGameObjectWithTag("Player");
         hint = player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
     }

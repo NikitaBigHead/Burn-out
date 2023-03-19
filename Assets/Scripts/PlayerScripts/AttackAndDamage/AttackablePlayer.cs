@@ -18,10 +18,10 @@ public class AttackablePlayer : AttackableEntity
         if (!invincible)
         {
             this.invincible = true;
-            ((PlayerOnHit)onDamageReceive).OnHit(health, maxHealth);
-            health -= value;   
-            if (health <= 0) OnDeath();
+            health -= value;
             PlayerData.playerCurrentHealth = health;
+            ((PlayerOnHit)onDamageReceive).OnHit(health, maxHealth);
+            if (health <= 0) OnDeath();
             Invoke("InvincibilityEnd", invincibilityDelay);
         }
     }
@@ -30,6 +30,7 @@ public class AttackablePlayer : AttackableEntity
     {
         health += value;
         if (health > maxHealth) health = maxHealth;
+        PlayerData.playerCurrentHealth = health;
     }
 
     protected override void InvincibilityEnd()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class InvenoryDebug : MonoBehaviour
@@ -8,6 +9,7 @@ public class InvenoryDebug : MonoBehaviour
     {
 #if DEBUG
         this.gameObject.SetActive(true);
+
 #else
         this.gameObject.SetActive(false);
 #endif
@@ -29,5 +31,12 @@ public class InvenoryDebug : MonoBehaviour
         {
             Debug.Log(item.ToString());
         }
+    }
+
+    public void AddKeys()
+    {
+        Item item = new Item("key");
+        PlayerData.listKey = item;
+        GetComponentInParent<SetitemsUI>().addItem(ref item);
     }
 }

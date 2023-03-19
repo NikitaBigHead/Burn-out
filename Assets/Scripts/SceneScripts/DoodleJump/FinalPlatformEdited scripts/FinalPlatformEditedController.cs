@@ -21,12 +21,16 @@ public class FinalPlatformEditedController : MonoBehaviour
     void OnEvent(GameObject sender)
     {
         if (sender.GetComponent<TakeItemEdited>() != null)
+        {
             keyTaken = true;
+            PlayerData.pillarKeyRecieved = true;
+        }
         if (sender.GetComponent<AttackableEntity>() != null)
             snowManDead = true;
 
         if (keyTaken && snowManDead)
         {
+
             SceneLoader.LoadScene("PostLocation");
         }
     }

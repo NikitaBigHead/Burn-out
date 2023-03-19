@@ -14,15 +14,30 @@ public class CorralFight : MonoBehaviour
 
     public GameObject enemies;
 
+    [SerializeField]
+    private GameObject keyPosition;
+
     private int enemyCount = 0;
 
     private void Awake()
     {
         enemies.SetActive(false);
-        if (PlayerData.corralBossFightComplited) Destroy(gameObject);
+        keyPosition.SetActive(false);
+        keyPosition.GetComponentInChildren<TakeItemEdited>().OnPickUp = (GameObject sender) => { PlayerData.corralKeyRecieved = true; };
+        if (PlayerData.corralBossFightComplited) 
+        {
+            if (!PlayerData.corralKeyRecieved)
+            {
+                keyPosition.SetActive(true);
+            }
+            else Destroy(this.gameObject);
+        } else
+        {
+            StartFight();
+        }
     }
 
-    private void Start()
+    private void StartFight()
     {
         if (allDoors)
             foreach (Door door in FindObjectsByType<Door>(FindObjectsSortMode.None))
@@ -46,6 +61,10 @@ public class CorralFight : MonoBehaviour
     {
         PlayerData.corralBossFightComplited = true;
         enemies.SetActive(false);
+        if (!PlayerData.corralKeyRecieved)
+        {
+            keyPosition.SetActive(true);
+        }
         if (allDoors)
             foreach (Door door in FindObjectsByType<Door>(FindObjectsSortMode.None))
             {
