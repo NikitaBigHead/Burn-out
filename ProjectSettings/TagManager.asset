@@ -14,6 +14,7 @@ TagManager:
   - Door
   - Platform
   - Game
+  - Body
   layers:
   - Default
   - TransparentFX

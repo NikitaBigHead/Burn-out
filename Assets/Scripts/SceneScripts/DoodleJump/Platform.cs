@@ -12,7 +12,7 @@ public class Platform : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.collider.tag == "Body")
         {
             if (!isJumped) gameController.AddScore();
             isJumped = true;
