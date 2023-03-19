@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Platform"))
         {
             animator.Play("Jump");
-
+            
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             collider.enabled = false;
         }
