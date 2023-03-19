@@ -28,6 +28,21 @@ public class FinalBossAiPhase2 : MonoBehaviour
     public float ravensDefaultOffset = -2.24f;
 
     [SerializeField]
+    private GameObject wavePrefab;
+
+    public float waveDamage = 5f;
+    public float waveThickness = 0.65f;
+    public float waveSafetyOffset = 0.75f;
+    public float waveSpeed = 0.85f;
+    public float waveMaxRange = 20f;
+
+    public float minWaveDelay = 0.8f;
+    public float maxWaveDelay = 2.1f;
+
+    private float currentWaveTime = 0;
+    private float maxWaveTime = 0;
+
+    [SerializeField]
     private Transform target;
 
     [SerializeField]
@@ -97,16 +112,26 @@ public class FinalBossAiPhase2 : MonoBehaviour
                 if (currentSpeed >= maxSpeed)
                 {
                                                          //State.PrepareToRun
-                    StartCoroutine(WaitForResetAfterDelay(State.PrepareToRavenAttack, delayAfterMaxSpeed, delayAfterRunning));
+                    StartCoroutine(WaitForResetAfterDelay(State.PrepareToWaveAttack, delayAfterMaxSpeed, delayAfterRunning));
                     state = State.Running;
                 }
                 break;
 
             case State.PrepareToWaveAttack:
-
+                currentWaveTime = 0;
+                maxWaveTime = Random.Range(minWaveDelay, maxWaveDelay);
+                state = State.WaveAttack;
                 break;
 
             case State.WaveAttack:
+                currentWaveTime += Time.deltaTime;
+                if (currentWaveTime > maxWaveTime)
+                {
+                    state = State.PrepareToWaveAttack;
+                    GameObject wave = Instantiate(wavePrefab);
+                    wave.transform.position = transform.position;
+                    wave.GetComponent<CircleWave>().Launch(waveDamage, waveThickness, waveSafetyOffset, waveSpeed, waveMaxRange);
+                }
                 break;
 
             case State.PrepareToRavenAttack:

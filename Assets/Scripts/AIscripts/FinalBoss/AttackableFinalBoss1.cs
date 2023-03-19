@@ -12,6 +12,9 @@ public class AttackableFinalBoss1 : AttackableEntity
     private GameObject phase2;
 
     [SerializeField]
+    private Transform phase2Location;
+
+    [SerializeField]
     private Transform player;
 
     [SerializeField]
@@ -66,6 +69,8 @@ public class AttackableFinalBoss1 : AttackableEntity
         Camera.main.transform.SetParent(attackableFinalBoss1.player.transform);
         Camera.main.transform.localPosition = new Vector3(0, 0, -10);
         attackableFinalBoss1.phase1.SetActive(false);
+        attackableFinalBoss1.phase2.transform.position = attackableFinalBoss1.phase2Location.position + new Vector3(0, 3f, 0);
+        attackableFinalBoss1.player.transform.position = attackableFinalBoss1.phase2Location.position + new Vector3(0, -3f, 0);
         attackableFinalBoss1.phase2.SetActive(true);
     }
 }
