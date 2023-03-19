@@ -47,6 +47,17 @@ public class SetitemsUI : MonoBehaviour
         }
         countPancake = PlayerData.getCountKey("pancake");
         countKeys = PlayerData.getCountKey("key");
+
+        if (countPancake > 0) // Если панкейки есть, то включаем отображение их количества
+        {
+            countIcons["pancake"].SetActive(true);
+            countIcons["pancake"].GetComponent<TextMeshProUGUI>().text = countPancake.ToString();
+        }
+        if (countKeys > 0) // Если ключи есть, то включаем отображение их количества
+        {
+            countIcons["key"].SetActive(true);
+            countIcons["key"].GetComponent<TextMeshProUGUI>().text = countKeys.ToString();
+        }
         //countPancake =  getCountKey(keyItems,"pancake");
         //countKeys = getCountKey(keyItems,"key");
     }

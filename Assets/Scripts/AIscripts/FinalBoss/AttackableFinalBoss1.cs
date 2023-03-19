@@ -14,12 +14,29 @@ public class AttackableFinalBoss1 : AttackableEntity
     [SerializeField]
     private Transform player;
 
+    [SerializeField]
+    private Canvas gameUI;
+
+    [SerializeField]
+    private GameObject healthBarPrefab;
+
+    private HealthBar healthBar;
+
     protected new void Start()
     {
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         onDamageReceive = gameObject.GetComponent<OnDamageReceive>();
         if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<Blinking>();
         actionsOnDeaths.Add(WhenDeath);
+
+        if (gameUI == null) {
+            gameUI = GameObject.Find("UI").GetComponent<Canvas>();
+        }
+        healthBar = Instantiate(healthBarPrefab, gameUI.transform).GetComponent<HealthBar>();
+
+        healthBar.currentHealth = health;
+        healthBar.maxHealth = health;
+        healthBar.SetCurrentHealth(health);
     }
 
     public override void RecieveDamage(float value)
@@ -29,6 +46,7 @@ public class AttackableFinalBoss1 : AttackableEntity
             this.invincible = true;
             onDamageReceive.OnHit(health);
             health -= value;
+            healthBar.RecieveDamage(value);
             if (health <= 0) OnDeath();
             Invoke("InvincibilityEnd", invincibilityDelay);
         }
@@ -43,6 +61,7 @@ public class AttackableFinalBoss1 : AttackableEntity
     protected static void WhenDeath(GameObject sender)
     {
         AttackableFinalBoss1 attackableFinalBoss1 = sender.GetComponent<AttackableFinalBoss1>();
+        Destroy(attackableFinalBoss1.healthBar.gameObject);
         attackableFinalBoss1.health = 100;
         Camera.main.transform.SetParent(attackableFinalBoss1.player.transform);
         Camera.main.transform.localPosition = new Vector3(0, 0, -10);

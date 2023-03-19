@@ -131,4 +131,9 @@ public class Item: ICloneable
         clone.count = this.count;
         return clone;
     }
+
+    public override string ToString()
+    {
+        return $"name: {key}, count: {count}";
+    }
 }

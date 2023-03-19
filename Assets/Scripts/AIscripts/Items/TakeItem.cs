@@ -12,12 +12,12 @@ public class TakeItem : MonoBehaviour
 {
     public string text = "[E] подобрать";
     public string keyItem;
-    private TextMeshProUGUI hint;
-    private GameObject player;
-    private SetitemsUI setItem;
+    protected TextMeshProUGUI hint;
+    protected GameObject player;
+    protected SetitemsUI setItem;
 
-    private bool isTrigger = false;
-    private void Awake()
+    protected bool isTrigger = false;
+    protected void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         hint = player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
@@ -32,7 +32,7 @@ public class TakeItem : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    protected void OnTriggerStay2D(Collider2D collision)
     {
 
         if (collision.tag == "Player")
@@ -42,7 +42,7 @@ public class TakeItem : MonoBehaviour
             isTrigger= true;
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    protected void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
@@ -52,7 +52,7 @@ public class TakeItem : MonoBehaviour
         }
     }
 
-    private void  Update()
+    protected void  Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && isTrigger)
         {
