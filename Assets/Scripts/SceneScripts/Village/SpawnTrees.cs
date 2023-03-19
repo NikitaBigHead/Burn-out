@@ -16,7 +16,7 @@ public class SpawnTrees : MonoBehaviour
         GenerateTrees(new Vector2(1f, 42f), new Vector2(-26f, -18), new Vector2(1.1f, 1.7f));
         GenerateTrees(new Vector2(1f, 42f), new Vector2(26f, -18), new Vector2(1.1f, 1.7f));
         GenerateTrees(new Vector2(52f, 1f), new Vector2(-26f, 25), new Vector2(1.7f, 1.1f));
-        GenerateTrees(new Vector2(52f, 1f), new Vector2(-26f, -18), new Vector2(1.7f, 1.1f));
+        GenerateTrees(new Vector2(52f, 1f), new Vector2(-26f, -18), new Vector2(1.7f, 1.1f), 6);
     }
 
     /// <summary>
@@ -25,7 +25,7 @@ public class SpawnTrees : MonoBehaviour
     /// <param name="size">–азмер участка в котором будут генерироватьс€ деревь€</param>
     /// <param name="offset">—мещение от центра координат</param>
     /// <param name="delta">–ассто€ние между соседними деревь€ми</param>
-    public void GenerateTrees(Vector2 size, Vector2 offset, Vector2 delta, int maxTrees=50)
+    public void GenerateTrees(Vector2 size, Vector2 offset, Vector2 delta, int orderInLayer=3, int maxTrees=50)
     {
         int cnt = 0;
         Vector2 current = new Vector2(0, 0);
@@ -33,7 +33,7 @@ public class SpawnTrees : MonoBehaviour
         {
             SpriteRenderer treeSpriteRenderer = Instantiate(tree).GetComponent<SpriteRenderer>();
             treeSpriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
-            treeSpriteRenderer.sortingOrder = 3;
+            treeSpriteRenderer.sortingOrder = orderInLayer;
             if (Random.Range(0, 2) == 0) treeSpriteRenderer.flipX = true;
             treeSpriteRenderer.transform.position = new Vector3(current.x + offset.x, current.y + offset.y, (current.x + 0.1f) * (current.y + 0.1f));
             current += delta;
@@ -43,7 +43,7 @@ public class SpawnTrees : MonoBehaviour
         }
     }
 
-    public IEnumerator GenerateTreesE(Vector2 size, Vector2 offset, Vector2 delta, float spawnDelay = 0.7f, int maxTrees = 50)
+    public IEnumerator GenerateTreesE(Vector2 size, Vector2 offset, Vector2 delta, float spawnDelay = 0.7f, int orderInLayer=3, int maxTrees = 50)
     {
         int cnt = 0;
         Vector2 current = new Vector2(0, 0);

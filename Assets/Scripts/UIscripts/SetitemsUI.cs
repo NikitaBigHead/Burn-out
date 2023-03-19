@@ -84,31 +84,35 @@ public class SetitemsUI : MonoBehaviour
             icons[key].active = true;
         }
     }
-    public void subtractItem(string key)
+    public bool subtractItem(string key)
     {
 
         if (key == "pancake")
         {
+            if (countPancake == 0) return false; // Оперцация не успешна, т.к. нету предметов которые можно было бы взять
             countPancake--;
-            if (countPancake == 0) { removeItem(key); return; }
+            if (countPancake == 0) { removeItem(key); return true; } // Операция успешна, удалён последний предмет
 
             if (countPancake > 0)
             {
                 countIcons[key].GetComponent<TextMeshProUGUI>().text = countPancake.ToString();
                 PlayerData.getItem(key).count -= 1;
             }
+            return true;
         }
         else if (key == "key")
         {
+            if (countKeys == 0) return false; // Оперцация не успешна, т.к. нету предметов которые можно было бы взять
             countKeys--;
-            if (countKeys == 0){ removeItem(key); return;}
+            if (countKeys == 0){ removeItem(key); return true;} // Операция успешна, удалён последний предмет
             if(countKeys > 0)
             {
                 countIcons[key].GetComponent<TextMeshProUGUI>().text = countKeys.ToString();
                 PlayerData.getItem(key).count -= 1;
             }
-
+            return true;
         }
+        return false; // Операция неуспешна
     }
     public void removeItem(string key)
     {

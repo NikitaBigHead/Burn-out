@@ -76,7 +76,7 @@ public class SceneLoader : MonoBehaviour
     public static Vector3 VillageNearCoralEntrance = new Vector3(-23.71f, 2.22f, 0f);
     public static Vector3 CorralExit = new Vector3(-0.571f, -5.43f, 0f);
     public static Vector3 CastleExit = new Vector3(-6.51f, 2.22f, 0f);
-    public static Vector3 PillarExit = new Vector3(-6.51f, 2.22f, 0f);
+    public static Vector3 PillarExit = new Vector3(0.02f, 3.23f, 0f);
     public static Vector3 BarnExit = new Vector3(-0.23f, -3f, 0f);
     public static Vector3 BarnAfterBoss = new Vector3(0f, 0f, 0f);
 
