@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FinalBossAiPhase2 : MonoBehaviour
@@ -13,19 +12,60 @@ public class FinalBossAiPhase2 : MonoBehaviour
         RunningWithAcceleration,
         Waiting,
         PrepareToWaveAttack,
+        ContinueWaveAttack,
         WaveAttack,
         Death
     }
 
     private State state = State.Waiting;
 
+    // Концовка
+    [SerializeField]
+    private GameObject ending;
+
+    // Вороны влетают в чучело во время вступления
+    [SerializeField]
+    private Transform ravens;
+
     [SerializeField]
     private GameObject ravensPrefab;
 
-    //[SerializeField]
-    //private Transform ravens;
-
     public float ravensDefaultOffset = -2.24f;
+
+    //=========================================================================
+    //=========================================================================
+    //=========================================================================
+
+    // Атака волной
+
+    [SerializeField] /* Префаб волны */
+    private GameObject wavePrefab;
+
+    // Переменные настройки атаки
+
+    public float waveDamage = 5f;           /* Урон при касании с волной */
+    public float waveThickness = 0.65f;     /* Толщина волны */
+    public float waveSafetyOffset = 0.75f;  /* Расстояние до безопасной внутренней зоны */
+    public float waveSpeed = 0.85f;         /* Скорость распространения волны */
+    public float waveMaxRange = 20f;        /* Максимальная дальность распространения */
+
+    public float minWaveDelay = 0.8f;       /* Минимальная задержка до спавна новой волны */
+    public float maxWaveDelay = 2.1f;       /* Максимальная задержка до спавна новой волны */
+
+    public int minWavesPerWaveAttack = 3;   /* Минимум волн за атаку */
+    public int maxWavesPerWaveAttack = 6;   /* Максимум волн за атаку */
+
+    // Локальные переменные
+
+    private float currentWaveTime = 0;
+    private float maxWaveTime = 0;
+
+    private int currentWaveCount = 0;
+    private int maxWaveCount = 0;
+
+    //=========================================================================
+    //=========================================================================
+    //=========================================================================
 
     [SerializeField]
     private Transform target;
@@ -36,19 +76,27 @@ public class FinalBossAiPhase2 : MonoBehaviour
     [SerializeField]
     private Vector3 targetOffset = new Vector3(0, -0.295f, 0);
 
-    public float delayAfterRunning = 0.5f;
-    public float delayAfterMaxSpeed = 1f;
+    // Бег в сторону игрока
 
-    public float delayFollowUpdate = 0.2f;
+    public float delayAfterRunning = 0.5f; /* Задержка перед следующей атакой после бега */
+    public float delayAfterMaxSpeed = 1f; /* Время бега после достижения максимаьной скорости */
 
-    public float acceleration = 0.001f;
-    public float maxSpeed = 0.112f;
-    public float startSpeed = 0f;
+    public float delayFollowUpdate = 0.2f; /* Задержка перед изменением курса в сторону игрока */
 
-    public float damage = 20f;
+    public float acceleration = 0.001f; /* Ускорение */
+    public float maxSpeed = 0.112f; /* Максимальная развиваемая скорость */ 
+    public float startSpeed = 0f; /* Скорость при начале движения */
+
+    public float damage = 20f; /* Урон при касании */
+
+    // Локальные переменные
 
     private float currentSpeed = 0f;
     private Vector2 direction;
+
+    //=========================================================================
+    //=========================================================================
+    //=========================================================================
 
     private Animator animator;
 
@@ -57,9 +105,7 @@ public class FinalBossAiPhase2 : MonoBehaviour
         if (target == null) target = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
 
-        //ravens.transform.position = transform.position + new Vector3(0, ravensDefaultOffset, 0);
-
-        StartCoroutine(ResetStateAfterDelay(State.PrepareToRun, 1f));
+        StartCoroutine(ResetStateAfterDelay(State.PrepareToRavenAttack, 1f));
     }
 
     void SelectAnimationBasedOnDirection()
@@ -78,9 +124,6 @@ public class FinalBossAiPhase2 : MonoBehaviour
         switch (state)
         {
             case State.PrepareToRun:
-                //currentSpeed;
-                //direction = new Vector2(target.position.x + targetOffset.x - transform.position.x - offset.x, target.position.y + targetOffset.y - transform.position.y - offset.y).normalized;
-                //SelectAnimationBasedOnDirection();
                 currentSpeed = startSpeed;
                 state = State.RunningWithAcceleration;
                 StartCoroutine(FollowPlayer());
@@ -96,32 +139,45 @@ public class FinalBossAiPhase2 : MonoBehaviour
                 transform.position += new Vector3(direction.x, direction.y) * currentSpeed;
                 if (currentSpeed >= maxSpeed)
                 {
-                                                         //State.PrepareToRun
-                    StartCoroutine(WaitForResetAfterDelay(State.PrepareToRavenAttack, delayAfterMaxSpeed, delayAfterRunning));
+                    StartCoroutine(WaitForResetAfterDelay(State.PrepareToWaveAttack, delayAfterMaxSpeed, delayAfterRunning));
                     state = State.Running;
                 }
                 break;
 
             case State.PrepareToWaveAttack:
+                maxWaveTime = Random.Range(minWaveDelay, maxWaveDelay);
+                currentWaveTime = maxWaveTime;
+                currentWaveCount = 0;
+                maxWaveCount = Random.Range(minWavesPerWaveAttack, maxWavesPerWaveAttack + 1);
+                state = State.WaveAttack;
+                break;
 
+            case State.ContinueWaveAttack:
+                currentWaveTime = 0;
+                maxWaveTime = Random.Range(minWaveDelay, maxWaveDelay);
+                state = State.WaveAttack;
+                if (currentWaveCount >= maxWaveCount)
+                {
+                    state = State.PrepareToRun;
+                }
                 break;
 
             case State.WaveAttack:
+                currentWaveTime += Time.deltaTime;
+                if (currentWaveTime > maxWaveTime)
+                {
+                    currentWaveCount++;
+                    state = State.ContinueWaveAttack;
+                    GameObject wave = Instantiate(wavePrefab);
+                    wave.transform.position = transform.position;
+                    wave.GetComponent<CircleWave>().Launch(waveDamage, waveThickness, waveSafetyOffset, waveSpeed, waveMaxRange);
+                }
                 break;
 
             case State.PrepareToRavenAttack:
                 state = State.RavenAttack;
-                Debug.Log("preparing to raven attack");
-                GameObject spawnedRavens = Instantiate(ravensPrefab);
-                RavensAi ravensAi = spawnedRavens.GetComponent<RavensAi>();
-                if (ravensAi == null)
-                {
-                    Debug.Log("RAVENAI == NULL");
-                }
-                ravensAi.Ensnare(transform, target.position, ravensDefaultOffset, 0.1f);
-
-                //this.ravens.transform.position = transform.position + new Vector3(0, ravensDefaultOffset, 0);
-                //this.ravens.GetComponent<Animator>().Play("OutAnimation");
+                ravens.transform.position = transform.position + new Vector3(0, ravensDefaultOffset, 0);
+                ravens.GetComponent<Animator>().Play("InAnimation");
                 break;
 
             case State.RavenAttack:
@@ -138,10 +194,10 @@ public class FinalBossAiPhase2 : MonoBehaviour
         }
     }
 
-    public void OnDeath()
+    public void OnDeath(GameObject sender)
     {
         state = State.Death;
-        
+        ending.SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

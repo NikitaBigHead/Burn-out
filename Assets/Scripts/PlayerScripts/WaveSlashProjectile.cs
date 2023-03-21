@@ -24,8 +24,13 @@ public class WaveSlashProjectile : MonoBehaviour
         }
     }
 
-    public void Launch(Vector3 position, Quaternion rotation, float speed, float range)
+    public void Launch(Vector3 position, Quaternion rotation, float speed, float range, bool isTrigger=false)
     {
+        if (collider2d == null)
+        {
+            collider2d = GetComponent<Collider2D>();
+        }
+        collider2d.isTrigger = isTrigger;
         this.direction = rotation * new Vector2(0, -1);
         this.waveRange = range;
         this.waveSpeed = speed;
@@ -46,12 +51,27 @@ public class WaveSlashProjectile : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag != "Player")
+        {
+            AttackableEntity entity = collision.collider.GetComponent<AttackableEntity>();
+            if (entity != null)
+            {
+                entity.RecieveDamage(damage);
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AttackableEntity entity = collision.GetComponent<AttackableEntity>();
-        if (entity != null)
+        if (collision.tag != "Player")
         {
-            entity.RecieveDamage(damage);
+            AttackableEntity entity = collision.GetComponent<AttackableEntity>();
+            if (entity != null)
+            {
+                entity.RecieveDamage(damage);
+            }
         }
     }
 }

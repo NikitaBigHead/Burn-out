@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class EnemyWaveController : MonoBehaviour
 {
-    /*public int enemyCount = 0;
+    public int enemyCount = 0;
 
     public delegate void Event(GameObject sender);
     List<Event> onEnd = new List<Event>();
+
+    private void Awake()
+    {
+        if (PlayerData.villageBrawlComplited) Destroy(this.gameObject);
+        foreach (AttackableEntity enemy in GetComponentsInChildren<AttackableEntity>())
+        {
+            enemy.actionsOnDeaths.Add(WhenEnemyDies);
+            enemyCount++;
+        }
+    }
 
     public void WhenEnemyDies(GameObject sender)
     {
@@ -20,11 +30,7 @@ public class EnemyWaveController : MonoBehaviour
 
     public virtual void Run()
     {
-        foreach (AttackableEntity enemy in GetComponentsInChildren<AttackableEntity>())
-        {
-            enemy.actionsOnDeaths.Add(WhenEnemyDies);
-            enemyCount++;
-        }
+
     }
 
     public virtual void End()
@@ -33,5 +39,5 @@ public class EnemyWaveController : MonoBehaviour
         {
             ev(this.gameObject);
         }
-    }*/
+    }
 }

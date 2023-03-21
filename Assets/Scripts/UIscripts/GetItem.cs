@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class GetItem : MonoBehaviour
@@ -48,26 +47,28 @@ public class GetItem : MonoBehaviour
         Bag.active = false;
         Pancake.active = false;
         Key.active = false;
+        PlayerData.selectedItem = "none";
     }
 
     public void getPancake()
     {
-        
         clearItems();
         Pancake.active = true;
         //pancake.Text = pancakeCount;
         pancake.SetItem = setitems;
-        
+        PlayerData.selectedItem = "pancake"; 
     }
     public void getPan()
     {
         clearItems();
         Pan.active = true;
+        PlayerData.selectedItem = "pan";
     }
     public void getBag()
     {
         clearItems();
         Bag.active = true;
+        PlayerData.selectedItem = "bag";
     }
     public void getKey()
     {
@@ -75,6 +76,7 @@ public class GetItem : MonoBehaviour
         Key.active = true;
         //key.Text = keyCount;
         key.SetItem = setitems;
+        PlayerData.selectedItem = "key";
 
     }
 

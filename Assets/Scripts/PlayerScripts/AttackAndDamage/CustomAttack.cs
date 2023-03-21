@@ -17,7 +17,7 @@ public class CustomAttack : Attack
             collider.enabled = true;
             isAttacked = false;
             Invoke("disableCollider", timeAttack);
-            Instantiate(waveSlash).Launch(this.transform.position, this.transform.rotation, 0.1f, 10f);
+            Instantiate(waveSlash).Launch(this.transform.position, this.transform.rotation, 0.1f, 10f, true);
         }
     }
 }

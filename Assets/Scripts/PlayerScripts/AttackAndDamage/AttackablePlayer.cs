@@ -10,6 +10,7 @@ public class AttackablePlayer : AttackableEntity
     {
         onDamageReceive = gameObject.GetComponent<PlayerOnHit>();
         if (onDamageReceive == null) onDamageReceive = gameObject.AddComponent<PlayerOnHit>();
+        actionsOnDeaths.Add(CheckpointManager.LoadCheckpoint);
     }
 
     public override void RecieveDamage(float value)
@@ -17,8 +18,9 @@ public class AttackablePlayer : AttackableEntity
         if (!invincible)
         {
             this.invincible = true;
-            ((PlayerOnHit)onDamageReceive).OnHit(health, maxHealth);
             health -= value;
+            PlayerData.playerCurrentHealth = health;
+            ((PlayerOnHit)onDamageReceive).OnHit(health, maxHealth);
             if (health <= 0) OnDeath();
             Invoke("InvincibilityEnd", invincibilityDelay);
         }
@@ -28,6 +30,7 @@ public class AttackablePlayer : AttackableEntity
     {
         health += value;
         if (health > maxHealth) health = maxHealth;
+        PlayerData.playerCurrentHealth = health;
     }
 
     protected override void InvincibilityEnd()
