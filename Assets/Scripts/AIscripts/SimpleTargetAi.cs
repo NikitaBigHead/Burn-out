@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class SimpleTargetAi : MonoBehaviour
 {
     [SerializeField]
-    private Transform target;
+    public Transform target;
     private NavMeshAgent agent;
 
     private void Awake()

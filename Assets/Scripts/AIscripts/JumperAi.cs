@@ -17,6 +17,8 @@ public class JumperAi : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    public float damage = 5f;
+    public float attackDelay = 0.5f;
     public float jumpDelay = 0.35f;
     public float jumpLength = 0.35f;
 
@@ -24,6 +26,7 @@ public class JumperAi : MonoBehaviour
 
     private int targetsVisited = 0;
     private bool canJump = true;
+    private bool canAttack = true;
     private bool targetExist = false;
 
 
@@ -32,6 +35,8 @@ public class JumperAi : MonoBehaviour
     public float projectileSpeed = 1f;
     public float projectileRange = 10f;
 
+
+    private AttackablePlayer attackablePlayer;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -48,6 +53,7 @@ public class JumperAi : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
+        attackablePlayer = player.GetComponent<AttackablePlayer>();
     }
 
     private void Update()
@@ -94,6 +100,10 @@ public class JumperAi : MonoBehaviour
     {
         canJump = true;
     }
+    private void ResetAttack()
+    {
+        canAttack = true;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bag")
@@ -105,6 +115,12 @@ public class JumperAi : MonoBehaviour
             Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
             projectile.Launch(projectileSpeed, projectileSize, projectileRange, direction);
             projectile.isPLayerRecaptured = true;
+        }
+        else if (collision.tag == "Player" && canAttack)
+        {
+            attackablePlayer.RecieveDamage(damage);
+            canAttack = false;
+            Invoke("ResetAttack",attackDelay);
         }
     }
 
