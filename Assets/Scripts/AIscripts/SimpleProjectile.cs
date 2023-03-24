@@ -44,6 +44,7 @@ public class SimpleProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         AttackableEntity attackableEntity = collision.GetComponent<AttackableEntity>();
+        Debug.Log(collision.tag);
         if (collision.tag == "Player")
         {
             attackableEntity.RecieveDamage(damage);
@@ -56,6 +57,7 @@ public class SimpleProjectile : MonoBehaviour
         }
         else if (collision.tag == "Pan")
         {
+
             if (this.gameObject.tag == "Rock")
             {
                 direction = new Vector2(-direction.x, -direction.y);
