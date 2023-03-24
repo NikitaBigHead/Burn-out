@@ -77,7 +77,15 @@ public class Attack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            audioSource.PlayOneShot(clipList[Random.Range(0, clipList.Count-1)]);
+            int t = Random.Range(0, clipList.Count - 1);
+            try
+            {
+                audioSource.PlayOneShot(clipList[t]);
+            }
+            catch
+            {
+                Debug.Log(t);
+            }
             AttackableEntity attackableEntity = collision.gameObject.GetComponent<AttackableEntity>();
             attackableEntity.RecieveDamage(damage);
 
