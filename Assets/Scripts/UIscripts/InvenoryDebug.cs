@@ -14,6 +14,9 @@ public class InvenoryDebug : MonoBehaviour
 #endif
     }
 
+    [SerializeField]
+    private GameObject debugItemsUI;
+
     public void ShowInventory()
     {
         Debug.Log("Items in inventory:");
@@ -37,5 +40,31 @@ public class InvenoryDebug : MonoBehaviour
         Item item = new Item("key");
         PlayerData.listKey = item;
         GetComponentInParent<SetitemsUI>().addItem(ref item);
+    }
+
+    public void AddPan()
+    {
+        Item item = new Item("pan");
+        PlayerData.listKey = item;
+        GetComponentInParent<SetitemsUI>().addItem(ref item);
+    }
+
+    public void AddPancake()
+    {
+        Item item = new Item("pancake");
+        PlayerData.listKey = item;
+        GetComponentInParent<SetitemsUI>().addItem(ref item);
+    }
+
+    public void AddBag()
+    {
+        Item item = new Item("bag");
+        PlayerData.listKey = item;
+        GetComponentInParent<SetitemsUI>().addItem(ref item);
+    }
+
+    public void ShowOrHideDebugMenu()
+    {
+        debugItemsUI.SetActive(!debugItemsUI.activeInHierarchy);
     }
 }
