@@ -19,6 +19,7 @@ public static class PlayerData
     //
     // Pillar key
     public static bool pillarKeyRecieved = false;
+
     //
     // Cutscene State
     public static bool cutsceneComplited = false;
@@ -88,6 +89,18 @@ public static class PlayerData
         for(int i =0;i< list.Count; i++)
         {
             if(item.key == list[i].key)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static bool isItemInList(string key)
+    {
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (key == list[i].key)
             {
                 return true;
             }

@@ -39,7 +39,28 @@ public class GetItem : MonoBehaviour
         pancake = Pancake.GetComponent<Pancake>();
         key = Key.GetComponent<Key>();
     }
-    
+
+    private void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && PlayerData.isItemInList("pan"))
+        {
+
+            getPan();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && PlayerData.isItemInList("bag"))
+        {
+            getBag();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && PlayerData.isItemInList("key"))
+        {
+            getKey();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && PlayerData.isItemInList("pancake"))
+        {
+            getPancake();
+        }
+    }
     public void clearItems()
     {
         //Destroy(player.GetComponentInChildren<Transform>());
