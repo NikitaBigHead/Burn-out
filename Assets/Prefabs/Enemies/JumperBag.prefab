@@ -158,12 +158,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   player: {fileID: 0}
+  damage: 5
+  attackDelay: 0.5
   jumpDelay: 0.8
   jumpLength: 1.8
   targetsBeforePlayer: 2
   projectileSize: 1
   projectileSpeed: 1.5
-  projectileRange: 10
+  projectileRange: 20
 --- !u!114 &-717880077327402695
 MonoBehaviour:
   m_ObjectHideFlags: 0

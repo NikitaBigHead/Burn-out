@@ -11,7 +11,9 @@ public class SpawnJumpers : MonoBehaviour
     private Vector3 spawnOffset = Vector3.zero;
 
     public float spawnDelay = 3f;
+    public int spawnMaxCount = 6;
 
+    private int spawnCount = 0;
     private bool canSpawn;
     // Start is called before the first frame update
     void Start()
@@ -19,12 +21,20 @@ public class SpawnJumpers : MonoBehaviour
         canSpawn = true;
         StartCoroutine(SpawnJumper());
     }
-
+    public void substractSpawner()
+    {
+        spawnCount--;
+    }
     IEnumerator SpawnJumper()
     {
         while (canSpawn)
         {
-            Instantiate(jumper, transform.position + spawnOffset, Quaternion.identity);
+            if (spawnCount != spawnMaxCount)
+            {
+                Instantiate(jumper, transform.position + spawnOffset, Quaternion.identity);
+                spawnCount++;
+            }
+           
             yield return new WaitForSeconds(spawnDelay);
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 //using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,7 +13,7 @@ public class JumperAi : MonoBehaviour
 
     [SerializeField]
     private Transform player;
-
+    private SpawnJumpers spawnJumpers;
     private Transform currentTarget;
 
     private NavMeshAgent agent;
@@ -54,6 +55,8 @@ public class JumperAi : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
         attackablePlayer = player.GetComponent<AttackablePlayer>();
+
+        spawnJumpers = GameObject.Find("testEnemy").GetComponent<SpawnJumpers>();
     }
 
     private void Update()
@@ -108,13 +111,21 @@ public class JumperAi : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bag")
         {
+            spawnJumpers.substractSpawner();
 
-            Destroy(this.gameObject.GetComponent<JumperAi>());
-            SimpleProjectile projectile = this.gameObject.AddComponent<SimpleProjectile>();
+            Destroy(gameObject.GetComponent<JumperAi>());
+
+            SimpleProjectile projectile = gameObject.AddComponent<SimpleProjectile>();
 
             Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
             projectile.Launch(projectileSpeed, projectileSize, projectileRange, direction);
             projectile.isPLayerRecaptured = true;
+
+
+        }
+        else if (collision.gameObject.tag == "Pan")
+        {
+            spawnJumpers.substractSpawner();
         }
         else if (collision.tag == "Player" && canAttack)
         {

@@ -6,7 +6,7 @@ public class SimpleProjectile : MonoBehaviour
 {
     public float speed = 1.0f;
     public float size = 1.0f;
-    public float range = 1.0f;
+    public float range = 10.0f;
     public Vector2 direction = Vector2.zero;
     public float damage = 5f;
     public float cashRange; 
@@ -21,17 +21,25 @@ public class SimpleProjectile : MonoBehaviour
         this.range = range;
         this.direction = direction;
 
+        StartCoroutine(flight());
+
     }
 
+    IEnumerator flight()
+    {
+        while(range >= 0f)
+        {
+            Vector3 translation = new Vector3(direction.x * speed, direction.y * speed, 0);
+            transform.position += translation;
+            range -= translation.magnitude;
+            yield return new WaitForFixedUpdate();
+        }
+        Destroy(this.gameObject);
+
+    }
     protected void FixedUpdate()
     {
-        Vector3 translation = new Vector3(direction.x * speed, direction.y * speed, 0);
-        transform.position += translation;
-        range -= translation.magnitude;
-        if (range <= 0f)
-        {
-            Destroy(this.gameObject);
-        }
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -63,8 +71,10 @@ public class SimpleProjectile : MonoBehaviour
         }
         else if(collision.tag == "Bag")
         {
-            Destroy(this.gameObject);
+            if (!isPLayerRecaptured) Destroy(this.gameObject);
         }
+
+
         
     }
         
