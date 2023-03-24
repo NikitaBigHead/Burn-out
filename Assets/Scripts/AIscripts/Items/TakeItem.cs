@@ -16,9 +16,12 @@ public class TakeItem : MonoBehaviour
     protected GameObject player;
     protected SetitemsUI setItem;
 
+    public int itemId;
+
     protected bool isTrigger = false;
     protected void Awake()
     {
+        PlayerData.RegisterPickUpItem(this);
         player = GameObject.FindGameObjectWithTag("Player");
         hint = player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
         try
@@ -56,8 +59,10 @@ public class TakeItem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && isTrigger)
         {
+            PlayerData.PickUpPickUpItem(this);
             Item item = new Item(keyItem);
-            PlayerData.listKey = item;
+            //PlayerData.listKey = item;
+            PlayerData.AddItem(keyItem);
             if(setItem!=null)setItem.addItem(ref item);
             Destroy(this.gameObject);
 

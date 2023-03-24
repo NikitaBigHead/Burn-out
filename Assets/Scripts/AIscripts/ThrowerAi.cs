@@ -19,6 +19,7 @@ public class ThrowerAi : MonoBehaviour
     public float projectileSize = 0.4f;
     public float projectileSpeed = 0.2f;
     public float projectileRange = 10f;
+    public float damage = 0;
 
     private bool canThrow = true;
 
@@ -35,8 +36,12 @@ public class ThrowerAi : MonoBehaviour
         if (canThrow) 
         {
             Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y).normalized;
-            Instantiate(projectile, transform.position + spawnOffset, Quaternion.identity).Launch(projectileSpeed, projectileSize, projectileRange, direction);
-
+            SimpleProjectile spawnedProjectile = Instantiate(projectile, transform.position + spawnOffset, Quaternion.identity);
+            spawnedProjectile.Launch(projectileSpeed, projectileSize, projectileRange, direction);
+            if (damage > 0)
+            {
+                spawnedProjectile.damage = damage;
+            }
             canThrow = false;
             Invoke("ResetThrow", throwDelay);
         }

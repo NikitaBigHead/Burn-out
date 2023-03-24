@@ -5,9 +5,11 @@ using UnityEngine;
 
 public static class PlayerData 
 {
-    // Test State on Village
+    //
+    // Fight on Village after tutorial
     public static bool villageBrawlComplited = false;
-    // Test State on Village
+    //
+    // Fight on Village after getting 3 keys
     public static bool villageBrawlPart2Complited = false;
     //
     // JumperBag Fight in CorralLocation
@@ -21,7 +23,12 @@ public static class PlayerData
     //
     // Pillar key
     public static bool pillarKeyRecieved = false;
-
+    //
+    // Pillar fight
+    public static bool pillarFight = false;
+    //
+    // Castle fight
+    public static bool castleFight = false;
     //
     // Cutscene State
     public static bool cutsceneComplited = false;
@@ -41,6 +48,28 @@ public static class PlayerData
     // Next Scene Position
     public static Vector3 nextScenePosition = Vector3.zero;
     //
+
+    static Dictionary<int, bool> pickupItemsOnScene = new Dictionary<int, bool>();
+
+    public static void RegisterPickUpItem(TakeItem item)
+    {
+        if (item.itemId != 0)
+        {
+            if (pickupItemsOnScene.ContainsKey(item.itemId))
+            {
+                item.gameObject.SetActive(pickupItemsOnScene[item.itemId]);
+            }
+            else
+            {
+                pickupItemsOnScene.Add(item.itemId, true);
+            }
+        }
+    }
+
+    public static void PickUpPickUpItem(TakeItem item)
+    {
+        pickupItemsOnScene[item.itemId] = false;
+    }
 
     public static CheckpointManager.Checkpoint checkpoint = CheckpointManager.Checkpoint.StartLocation;
 
@@ -140,7 +169,51 @@ public static class PlayerData
         }
         return null;
     }
-    
+
+    public static bool RemoveItem(string key)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].key == key)
+            {
+                if (list[i].count == 1)
+                {
+                    list.RemoveAt(i);
+                }
+                else
+                {
+                    list[i].count--;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void AddItem(string key)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].key == key)
+            {
+                list[i].count++;
+            }
+        }
+        list.Add(new Item(key, 1));
+    }
+
+    public static int GetCount(string key)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].key == key)
+            {
+                return list[i].count;
+            }
+        }
+        return 0;
+    }
+
 
 }
 public class Item: ICloneable
@@ -150,6 +223,12 @@ public class Item: ICloneable
     public Item(string key)
     {
         this.key = key;
+    }
+
+    public Item(string key, int count)
+    {
+        this.key = key;
+        this.count = count;
     }
 
     public object Clone()

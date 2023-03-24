@@ -12,8 +12,10 @@ public class TakeItemEdited : TakeItem
     {
         if (Input.GetKeyDown(KeyCode.E) && isTrigger)
         {
+            PlayerData.PickUpPickUpItem(this);
             Item item = new Item(keyItem);
-            PlayerData.listKey = item;
+            //PlayerData.listKey = item;
+            PlayerData.AddItem(keyItem);
             if (setItem != null) setItem.addItem(ref item);
             OnPickUp(this.gameObject);
             Destroy(this.gameObject);
