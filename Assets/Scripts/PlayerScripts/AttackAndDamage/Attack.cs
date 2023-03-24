@@ -84,7 +84,6 @@ public class Attack : MonoBehaviour
             }
             catch
             {
-                Debug.Log(t);
             }
             AttackableEntity attackableEntity = collision.gameObject.GetComponent<AttackableEntity>();
             attackableEntity.RecieveDamage(damage);

@@ -19,7 +19,7 @@ public class PillarFight : MonoBehaviour
     private void Awake()
     {
         enemies.SetActive(false);
-        if (PlayerData.pillarFight) Destroy(gameObject);
+        if (PlayerData.pillarFight) Destroy(this);
     }
 
     private void Start()
