@@ -44,7 +44,6 @@ public class SimpleProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         AttackableEntity attackableEntity = collision.GetComponent<AttackableEntity>();
-        Debug.Log(collision.tag);
         if (collision.tag == "Player")
         {
             attackableEntity.RecieveDamage(damage);
