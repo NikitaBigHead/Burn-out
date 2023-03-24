@@ -13,13 +13,15 @@ public class VillageBrawlScript : MonoBehaviour
     public List<Door> doors = new List<Door>();
 
     public GameObject enemies;
+    public GameObject enemies2;
 
     private int enemyCount = 0;
 
     private void Awake()
     {
         enemies.SetActive(false);
-        if (PlayerData.villageBrawlComplited) Destroy(gameObject);
+        enemies2.SetActive(false);
+        if (PlayerData.villageBrawlComplited && PlayerData.villageBrawlPart2Complited) Destroy(gameObject);
     }
 
     private void Start()
@@ -34,6 +36,7 @@ public class VillageBrawlScript : MonoBehaviour
             {
                 door.open = false;
             }
+        if (PlayerData.villageBrawlComplited) enemies = enemies2;
         enemies.SetActive(true);
         foreach (AttackableEntity enemy in enemies.GetComponentsInChildren<AttackableEntity>())
         {
@@ -44,7 +47,11 @@ public class VillageBrawlScript : MonoBehaviour
 
     public void Complite()
     {
-        PlayerData.villageBrawlComplited = true;
+        if (PlayerData.villageBrawlComplited)
+        {
+            PlayerData.villageBrawlPart2Complited = true;
+        } else
+            PlayerData.villageBrawlComplited = true;
         enemies.SetActive(false);
         if (allDoors)
             foreach (Door door in FindObjectsByType<Door>(FindObjectsSortMode.None))
