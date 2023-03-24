@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 525006890051481886}
   - component: {fileID: 7648661814381195759}
   - component: {fileID: 7648661814381195758}
+  - component: {fileID: 7741645624303724296}
   m_Layer: 0
   m_Name: StrawmanFork
   m_TagString: Enemy
@@ -272,6 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   invincibilityDelay: 0.25
+  onDamageReceive: {fileID: 0}
 --- !u!114 &7648661814381195759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +302,23 @@ MonoBehaviour:
   list:
   - {fileID: 8215780146612370380}
   - {fileID: 525006890051481886}
+--- !u!114 &7741645624303724296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215780146612370378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f39d1cd789c15479382283f26bf165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+  defaultParticleSystemPrefab: {fileID: 5512196406824436179, guid: e70c3efdbfdecf5408ccd64067f5518b, type: 3}
+  delay: 0.1
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  sprite: {fileID: 0}
 --- !u!1 &8215780147113330732
 GameObject:
   m_ObjectHideFlags: 0

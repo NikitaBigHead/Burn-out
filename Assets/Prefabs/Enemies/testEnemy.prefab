@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 219929270}
   - component: {fileID: 1466897932}
   - component: {fileID: 1466897933}
+  - component: {fileID: -965850454018015336}
   m_Layer: 0
   m_Name: testEnemy
   m_TagString: Enemy
@@ -69,7 +70,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3218012720609892170}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5a222cf094359745b7aa9f639f589a4, type: 3}
   m_Name: 
@@ -142,6 +143,7 @@ MonoBehaviour:
   jumper: {fileID: 8651641254654120277, guid: e85580391cacac546a6ecc12792e881f, type: 3}
   spawnOffset: {x: 0, y: -1.6, z: 0}
   spawnDelay: 3
+  spawnMaxCount: 6
 --- !u!114 &1466897932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +173,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMesh: {fileID: 0}
+--- !u!114 &-965850454018015336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218012720609892170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f39d1cd789c15479382283f26bf165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+  defaultParticleSystemPrefab: {fileID: 5512196406824436179, guid: 1583a5ffd7242214c9d7866d48f73f19, type: 3}
+  delay: 0.1
+  blinkColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sprite: {fileID: 0}
 --- !u!1 &3218012721239763413
 GameObject:
   m_ObjectHideFlags: 0

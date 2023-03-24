@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InvenoryDebug : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class InvenoryDebug : MonoBehaviour
     {
 #if DEBUG
         this.gameObject.SetActive(true);
+        //if (SceneManager.S)
 
 #else
         this.gameObject.SetActive(false);
