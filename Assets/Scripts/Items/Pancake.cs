@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Pancake : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip audio;
+
     public int heal = 10;
     private SetitemsUI setitems;
     private AttackableEntity attackableEntity;
@@ -20,25 +23,14 @@ public class Pancake : MonoBehaviour
     private void Awake()
     {
         attackableEntity = GameObject.Find("Player").GetComponent<AttackableEntity>();
+        audioSource = transform.parent.GetComponent<AudioSource>();
     }
-    private void Start()
-    {
-        Debug.Log(setitems);
-    }
+
     public void eatPancake()
     {
+        audioSource.PlayOneShot(audio);
         setitems.subtractItem("pancake");
         attackableEntity.RecieveHeal(10);
-
-        //anim
-        //count--;
-        //if (count == 0)
-        //{
-        //  //gameObject.active = false;
-        //setitems.subtractItem("pancake");
-        //return;
-        //}
-        //text.text = count.ToString();
 
     }
     private void Update()

@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
+    private AudioSource audioSource;
+
+    public AudioClip audioScrip;
+    public AudioClip audioLongScrip;
+
     public string Scene;
 
     public SceneLoader.Position position = SceneLoader.Position.Custom;
@@ -56,6 +61,9 @@ public class Door : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && triggered)
         {
+            if (checkpoint == CheckpointManager.Checkpoint.VillageToStartLocation ||
+                checkpoint == CheckpointManager.Checkpoint.StartLocationToVillage) audioSource.PlayOneShot(audioScrip);
+            else if(checkpoint == CheckpointManager.Checkpoint.VillageToBarn) audioSource.PlayOneShot(audioLongScrip);
             open = true;
         }
     }

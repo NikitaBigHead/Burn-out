@@ -64,8 +64,7 @@ public class Attack : MonoBehaviour
     {
         if(isAttacked)
         {
-            audioSource.PlayOneShot(clipList[Random.Range(0,clipList.Count)]);
-
+            
             spriteRendererPan.color = Color.red;
             animator.Play(animation,layer);
             isCanAttack = false;
@@ -78,6 +77,7 @@ public class Attack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            audioSource.PlayOneShot(clipList[Random.Range(0, clipList.Count-1)]);
             AttackableEntity attackableEntity = collision.gameObject.GetComponent<AttackableEntity>();
             attackableEntity.RecieveDamage(damage);
 
