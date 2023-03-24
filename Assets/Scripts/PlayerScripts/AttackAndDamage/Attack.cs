@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+
+    public List<AudioClip> clipList;
+
     public float timeAttack = 0.5f;
     public float delayAttack;
 
@@ -26,11 +29,14 @@ public class Attack : MonoBehaviour
     protected Collider2D collider;
     protected bool isCanAttack = true;
 
+    AudioSource audioSource;
+
     private void Awake()
     {
         collider= GetComponent<Collider2D>();
         if (animation == "Bag") layer = 1;
 
+        audioSource = transform.parent.GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -58,6 +64,8 @@ public class Attack : MonoBehaviour
     {
         if(isAttacked)
         {
+            audioSource.PlayOneShot(clipList[Random.Range(0,clipList.Count)]);
+
             spriteRendererPan.color = Color.red;
             animator.Play(animation,layer);
             isCanAttack = false;
