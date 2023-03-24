@@ -28,9 +28,12 @@ public class Pancake : MonoBehaviour
 
     public void eatPancake()
     {
-        audioSource.PlayOneShot(audio);
-        setitems.subtractItem("pancake");
-        attackableEntity.RecieveHeal(10);
+        if (setitems.subtractItem("pancake"))
+        {
+            audioSource.PlayOneShot(audio);
+
+            attackableEntity.RecieveHeal(10);
+        }
 
     }
     private void Update()

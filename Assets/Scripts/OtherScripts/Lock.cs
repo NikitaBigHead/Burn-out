@@ -16,6 +16,7 @@ public class Lock : MonoBehaviour
     private SetitemsUI setitems;
     private void Awake()
     {
+        needKeys -= PlayerData.keysInDoor;
         player = GameObject.FindGameObjectWithTag("Player");
         setitems =  GameObject.FindGameObjectWithTag("UI").GetComponent<SetitemsUI>();
         hint = player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
@@ -46,6 +47,7 @@ public class Lock : MonoBehaviour
             if (setitems.subtractItem("key"))
             {
                 needKeys--;
+                PlayerData.keysInDoor++;
                 text = string.Format("Осталось {0} ключей,чтобы открыть замок", needKeys);
                 hint.text = text;
                 if (needKeys == 0)

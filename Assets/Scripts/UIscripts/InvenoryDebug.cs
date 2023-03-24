@@ -40,28 +40,32 @@ public class InvenoryDebug : MonoBehaviour
     public void AddKeys()
     {
         Item item = new Item("key");
-        PlayerData.listKey = item;
+        PlayerData.AddItem("key");
+        //PlayerData.listKey = item;
         GetComponentInParent<SetitemsUI>().addItem(ref item);
     }
 
     public void AddPan()
     {
         Item item = new Item("pan");
-        PlayerData.listKey = item;
+        PlayerData.AddItem("pan");
+        //PlayerData.listKey = item;
         GetComponentInParent<SetitemsUI>().addItem(ref item);
     }
 
     public void AddPancake()
     {
         Item item = new Item("pancake");
-        PlayerData.listKey = item;
+        PlayerData.AddItem("pancake");
+        //PlayerData.listKey = item;
         GetComponentInParent<SetitemsUI>().addItem(ref item);
     }
 
     public void AddBag()
     {
         Item item = new Item("bag");
-        PlayerData.listKey = item;
+        PlayerData.AddItem("bag");
+        //PlayerData.listKey = item;
         GetComponentInParent<SetitemsUI>().addItem(ref item);
     }
 

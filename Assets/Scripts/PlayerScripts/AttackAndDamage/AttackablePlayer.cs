@@ -28,9 +28,12 @@ public class AttackablePlayer : AttackableEntity
 
     public override void RecieveHeal(float value)
     {
+        this.invincible = true;
         health += value;
         if (health > maxHealth) health = maxHealth;
         PlayerData.playerCurrentHealth = health;
+        ((PlayerOnHit)onDamageReceive).OnHit(health, maxHealth);
+        Invoke("InvincibilityEnd", invincibilityDelay);
     }
 
     protected override void InvincibilityEnd()

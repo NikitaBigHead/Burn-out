@@ -35,6 +35,12 @@ public static class PlayerData
     //
     // Tutorial State
     public static bool tutorialComplited = false;
+
+    //
+    // Boss door keys
+    public static int keysInDoor = 0;
+
+
     //
     // Player Health
     public static float playerCurrentHealth = 100;
@@ -197,6 +203,7 @@ public static class PlayerData
             if (list[i].key == key)
             {
                 list[i].count++;
+                return;
             }
         }
         list.Add(new Item(key, 1));
