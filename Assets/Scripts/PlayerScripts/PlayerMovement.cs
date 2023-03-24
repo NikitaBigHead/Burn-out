@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool isFloor = true;
+
+    private AudioSource audioSource;
+
+    public List<AudioClip> clipListSnow;
+    public List<AudioClip> clipListFloor;
+    private bool canAudio = true;
+
     public float speed = 0.1f;
 
     public Vector2 direction;
@@ -16,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
    
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         if (PlayerData.prefab == null) PlayerData.prefab = this.gameObject;
     }
@@ -101,9 +110,31 @@ public class PlayerMovement : MonoBehaviour
             }
         }
       
-       
+       if(direction.x!=0 || direction.y != 0)
+        {
+            AudioClip audio;
+            if (isFloor && canAudio)
+            {
+                canAudio = false;
+                audio = clipListFloor[Random.Range(0, clipListFloor.Count-1)];
+                audioSource.PlayOneShot(audio);
+                Invoke("resetSound", audio.length);
+            }
+            else if (!isFloor && canAudio) 
+            {
+                canAudio = false;
+                audio = clipListSnow[Random.Range(0, clipListSnow.Count)];
+                audioSource.PlayOneShot(audio);
+                Invoke("resetSound", audio.length);
+            }
+           
+        }
         rb.MovePosition(rb.position + direction.normalized*speed);
           
+    }
+    private void resetSound()
+    {
+        canAudio = true;
     }
     private bool isVectorBetween(Vector2 current, Vector2 a, Vector3 b)
     {
