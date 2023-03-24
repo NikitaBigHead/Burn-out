@@ -51,13 +51,13 @@ public class GetItem : MonoBehaviour
         {
             getBag();
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && PlayerData.isItemInList("key"))
-        {
-            getKey();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && PlayerData.isItemInList("pancake"))
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && PlayerData.isItemInList("pancake"))
         {
             getPancake();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && PlayerData.isItemInList("key"))
+        {
+            getKey();
         }
     }
     public void clearItems()
