@@ -21,7 +21,8 @@ public class VillageBrawlScript : MonoBehaviour
     {
         enemies.SetActive(false);
         enemies2.SetActive(false);
-        if (PlayerData.villageBrawlComplited && PlayerData.villageBrawlPart2Complited) Destroy(gameObject);
+        if (PlayerData.villageBrawlComplited)
+            if (!PlayerData.pillarKeyRecieved || !PlayerData.castleKeyRecieved || !PlayerData.castleKeyRecieved || PlayerData.villageBrawlPart2Complited) Destroy(gameObject);
     }
 
     private void Start()
