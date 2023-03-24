@@ -641,6 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b84e38e1e190a14ab71652de446ac1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 8300000, guid: ed646300220bc874baabe83d1c345753, type: 3}
   heal: 10
 --- !u!1 &1052085060
 GameObject:
@@ -1150,6 +1151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66799d11f38c52548bf43d1f354e7add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFloor: 0
+  clipListSnow:
+  - {fileID: 8300000, guid: 52b7a1f108d4ddc458b3e638c1a2830f, type: 3}
+  - {fileID: 8300000, guid: 8852c05fa3bf63e4bb7bad641ab64bdf, type: 3}
+  clipListFloor:
+  - {fileID: 8300000, guid: 3f342ec60a6f58b45bf5808e05fe3e0d, type: 3}
   speed: 0.1
   direction: {x: 0, y: 0}
 --- !u!212 &954827926
@@ -1285,7 +1292,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.72
   m_Pitch: 1
   Loop: 0
   Mute: 0

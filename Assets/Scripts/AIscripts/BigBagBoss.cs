@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class BigBagBoss : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip audio;
+
     public float bigJumpDelay = 5f;
     public float jumpDelay = 0.3f;
     public float FlightDelay = 5f;
@@ -26,6 +29,9 @@ public class BigBagBoss : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
+        
+        audioSource = GetComponent<AudioSource>();
+
         collider = GetComponent<Collider2D>();
 
         agent = GetComponent<NavMeshAgent>();
@@ -102,9 +108,12 @@ public class BigBagBoss : MonoBehaviour
             if (collisions[i].tag == "Player") collisions[i].gameObject.GetComponent<AttackablePlayer>().RecieveDamage(damage);
         }
 
+        audioSource.PlayOneShot(audio);
         agent.enabled = true;
         collider.enabled = true;
         attention.stop();
+
+
         StartCoroutine(walking());
     }
 
