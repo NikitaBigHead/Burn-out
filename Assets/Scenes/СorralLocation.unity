@@ -6170,6 +6170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a3f8050f4615040a77564b3e120d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &686998962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3218012720609892170, guid: 7bd0e0fdfb7ea754797fb94430e8fbdb, type: 3}
+  m_PrefabInstance: {fileID: 1090367631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &931331716
 GameObject:
   m_ObjectHideFlags: 0
@@ -6410,6 +6415,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3218012720609892172, guid: 7bd0e0fdfb7ea754797fb94430e8fbdb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3218012721239763400, guid: 7bd0e0fdfb7ea754797fb94430e8fbdb, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -6422,7 +6431,8 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3218012720609892172, guid: 7bd0e0fdfb7ea754797fb94430e8fbdb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7bd0e0fdfb7ea754797fb94430e8fbdb, type: 3}
 --- !u!1 &1145474015
 GameObject:
@@ -7927,6 +7937,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3218012720609892171, guid: 7bd0e0fdfb7ea754797fb94430e8fbdb, type: 3}
   m_PrefabInstance: {fileID: 1090367631}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1767383549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686998962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbb87d1f63a80f4590a3e30b47dd8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bigJumpDelay: 5
+  jumpDelay: 0.3
+  FlightDelay: 3
+  SpeedFalling: 20
+  damage: 20
+  jumpLength: 1
+  height: 5
+  ShadowWarning: {fileID: 1239048426931055736, guid: 4ceaea1c3dea6b148b376fb4f80018e9, type: 3}
 --- !u!1 &1824539758
 GameObject:
   m_ObjectHideFlags: 0

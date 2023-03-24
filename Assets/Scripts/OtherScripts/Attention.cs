@@ -16,7 +16,7 @@ public class Attention : MonoBehaviour
     {
         Invoke("stop", interval);
     }
-    private void stop()
+    public void stop()
     {
         Destroy(this.gameObject);
     }
