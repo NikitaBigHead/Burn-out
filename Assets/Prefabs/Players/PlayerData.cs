@@ -40,7 +40,9 @@ public static class PlayerData
     // Boss door keys
     public static int keysInDoor = 0;
 
-
+    //
+   //
+    public static float healthWhenEnterDoodle = 100;
     //
     // Player Health
     public static float playerCurrentHealth = 100;

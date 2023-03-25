@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collider= rb.GetComponent<Collider2D>();
         mainCamera = Camera.main;
+        GetComponentInChildren<AttackableEntity>().health = PlayerData.healthWhenEnterDoodle;
+        PlayerData.playerCurrentHealth = PlayerData.healthWhenEnterDoodle;
     }
 
     void Update()

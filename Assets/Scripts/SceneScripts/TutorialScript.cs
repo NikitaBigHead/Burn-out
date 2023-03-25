@@ -18,6 +18,10 @@ public class TutorialScript : MonoBehaviour
     private TextMeshProUGUI caption;
 
     [SerializeField]
+    // Кнопка пропуска туториала
+    private GameObject buttonSkip;
+
+    [SerializeField]
     private TakeItemEdited pan;
 
     [SerializeField]
@@ -55,6 +59,11 @@ public class TutorialScript : MonoBehaviour
     {
         door.open = false;
         tutorialUI.SetActive(true);
+#if DEBUG
+        buttonSkip.SetActive(true);
+#else
+        buttonSkip.SetActive(false);
+#endif
         state = State.WaitForMove;
         enemy = Instantiate(enemyPrefab, transform);
         enemy.transform.position = new Vector3(-4, 0, -1);
@@ -120,6 +129,14 @@ public class TutorialScript : MonoBehaviour
         }
     }
 
+    public void EndTutorial()
+    {
+        tutorialUI.SetActive(false);
+        PlayerData.tutorialComplited = true;
+        door.open = true;
+        state = State.End;
+    }
+
     IEnumerator WaitAfterMove()
     {
         yield return new WaitForSeconds(2f);
@@ -130,9 +147,6 @@ public class TutorialScript : MonoBehaviour
     IEnumerator WaitAfterKill()
     {
         yield return new WaitForSeconds(2f);
-        tutorialUI.SetActive(false);
-        PlayerData.tutorialComplited = true;
-        door.open = true;
-        state = State.End;
+        EndTutorial();
     }
 }

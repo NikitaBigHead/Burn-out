@@ -12,6 +12,9 @@ public class PillarFight : MonoBehaviour
     public bool allDoors = true;
     public List<Door> doors = new List<Door>();
 
+    [SerializeField]
+    private DoorToDoodleJump doorToDoodle;
+
     public GameObject enemies;
 
     private int enemyCount = 0;
@@ -20,6 +23,8 @@ public class PillarFight : MonoBehaviour
     {
         enemies.SetActive(false);
         if (PlayerData.pillarFight) Destroy(this);
+        if (doorToDoodle == null)
+            doorToDoodle = GetComponentInChildren<DoorToDoodleJump>();
     }
 
     private void Start()
@@ -34,6 +39,7 @@ public class PillarFight : MonoBehaviour
             {
                 door.open = false;
             }
+        doorToDoodle.enabled = false;
         enemies.SetActive(true);
         foreach (AttackableEntity enemy in enemies.GetComponentsInChildren<AttackableEntity>())
         {
@@ -46,6 +52,7 @@ public class PillarFight : MonoBehaviour
     {
         PlayerData.pillarFight = true;
         enemies.SetActive(false);
+        doorToDoodle.enabled = true;
         if (allDoors)
             foreach (Door door in FindObjectsByType<Door>(FindObjectsSortMode.None))
             {

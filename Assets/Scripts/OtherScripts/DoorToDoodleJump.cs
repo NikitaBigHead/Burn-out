@@ -32,12 +32,12 @@ public class DoorToDoodleJump : MonoBehaviour
             hint.text = text;
             triggered = true;
         }
-
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && triggered)
         {
+            PlayerData.healthWhenEnterDoodle = PlayerData.playerCurrentHealth;
             SceneLoader.LoadScene("Doodle Jump");
             gameObject.active = false;
         }

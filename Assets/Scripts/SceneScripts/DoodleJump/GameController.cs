@@ -37,6 +37,13 @@ public class GameController : MonoBehaviour
         startSpawnPostionPlatforms += Random.Range(3.5f, 5f);
     }
 
+
+    public void SkipGame()
+    {
+        Debug.Log("skip");
+        GameObject player = GameObject.FindGameObjectWithTag("Body");
+        player.transform.position = new Vector3(0, startSpawnPostionPlatforms, 0);
+    }
  
 
     public void AddScore()
