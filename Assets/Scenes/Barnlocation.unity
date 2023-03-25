@@ -12851,8 +12851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a3d42533585c3f42b971b09e5d575e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  invincibilityDelay: 0.25
+  health: 125
+  invincibilityDelay: 0.4
   onDamageReceive: {fileID: 0}
   bossAi: {fileID: 0}
   gameUI: {fileID: 0}
@@ -19023,8 +19023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a458c16a892402e41828fc7188b9c734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  invincibilityDelay: 0.25
+  health: 125
+  invincibilityDelay: 0.4
   onDamageReceive: {fileID: 0}
   phase1: {fileID: 1502452738}
   phase2: {fileID: 807961944}
