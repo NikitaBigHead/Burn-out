@@ -123,6 +123,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &173941103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173941104}
+  - component: {fileID: 173941105}
+  m_Layer: 0
+  m_Name: EndingController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &173941104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173941103}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 913.82654, y: 503.05478, z: -3.4882593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &173941105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173941103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3ce3b4c4b805748987ea21a0abc5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endingUI: {fileID: 1179182836}
+  player: {fileID: 1341694809}
 --- !u!1 &231935147
 GameObject:
   m_ObjectHideFlags: 0
@@ -12843,7 +12889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2385a2f5b1d15d94eb625e2f829785f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ending: {fileID: 1179182836}
+  ending: {fileID: 173941105}
   ravens: {fileID: 838078715}
   ravensPrefab: {fileID: 4856327812297922845, guid: 8fed28d358195f94a8dd07ff690fc714, type: 3}
   ravensDefaultOffset: -2.75
@@ -18005,7 +18051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1179182837
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18266,6 +18312,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4267892451401610623, guid: daa084de49d0f0b41a0c37e9fa4f0cea, type: 3}
   m_PrefabInstance: {fileID: 1234419489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1341694809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3994285909771319582, guid: f1bec867776458146810e26b57519482, type: 3}
+  m_PrefabInstance: {fileID: 934190455}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1502452738
 GameObject:

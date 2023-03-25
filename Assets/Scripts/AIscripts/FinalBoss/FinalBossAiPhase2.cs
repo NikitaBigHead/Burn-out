@@ -21,7 +21,7 @@ public class FinalBossAiPhase2 : MonoBehaviour
 
     // Концовка
     [SerializeField]
-    private GameObject ending;
+    private EndingController ending;
 
     // Вороны влетают в чучело во время вступления
     [SerializeField]
@@ -197,7 +197,7 @@ public class FinalBossAiPhase2 : MonoBehaviour
     public void OnDeath(GameObject sender)
     {
         state = State.Death;
-        ending.SetActive(true);
+        ending.EndGame();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
