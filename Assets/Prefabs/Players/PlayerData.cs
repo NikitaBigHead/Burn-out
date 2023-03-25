@@ -55,6 +55,7 @@ public static class PlayerData
     public static Vector3 nextScenePosition = Vector3.zero;
     //
 
+    public static bool isOpenLock = false;
     static Dictionary<int, bool> pickupItemsOnScene = new Dictionary<int, bool>();
 
     public static void RegisterPickUpItem(TakeItem item)

@@ -70,7 +70,7 @@ public class SceneLoader : MonoBehaviour
     public static Vector3 StartLocationHouseRightSide = new Vector3(4f, 0f, -1f);
     public static Vector3 StartLocationNearExit = new Vector3(-6.45f, 2.46f, 0f);
     public static Vector3 VillageNearHouseEntrance = new Vector3(-6.51f, 2.22f, 0f);
-    public static Vector3 VillageNearBarnEntrance = new Vector3(-0.13f, 21.09f, 0f);
+    public static Vector3 VillageNearBarnEntrance = new Vector3(-0.13f, 18.09f, 0f);
     public static Vector3 VillageNearPillarEntrance = new Vector3(-0.13f, -16.83f, 0f);
     public static Vector3 VillageNearCastleEntrance = new Vector3(23.22f, 2.22f, 0f);
     public static Vector3 VillageNearCoralEntrance = new Vector3(-23.71f, 2.22f, 0f);

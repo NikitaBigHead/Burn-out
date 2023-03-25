@@ -22,6 +22,14 @@ public class Lock : MonoBehaviour
         hint = player.GetComponent<PlayerGameObjectHolder>().gameObjects[0].GetComponent<TextMeshProUGUI>();
         door = transform.parent.transform.GetChild(2).gameObject;//door
     }
+    private void Start()
+    {
+        if(PlayerData.isOpenLock)
+        {
+            door.active = true;
+            gameObject.active = false;
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -52,6 +60,7 @@ public class Lock : MonoBehaviour
                 hint.text = text;
                 if (needKeys == 0)
                 {
+                    PlayerData.isOpenLock = true;
                     door.active = true;
                     gameObject.active = false;
                 }
