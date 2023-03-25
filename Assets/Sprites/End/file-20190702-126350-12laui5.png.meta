@@ -1,0 +1,1075 @@
+fileFormatVersion: 2
+guid: 215f42eae3ec261469d4eb5b2360ad3f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_0
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 1539
+        width: 555
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 740f61feabf62324d9928522fded1c59
+      internalID: -1767046225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1444
+        width: 518
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc04d7c7cd298b04d9baf8d0a9dec259
+      internalID: 1835260524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_4
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 1374
+        width: 542
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540189311926ee040a0bf68e4623b4dd
+      internalID: 1055296084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_6
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 1399
+        width: 30
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 213a2f61f2fb30b4983bbc0d97ab81ab
+      internalID: 1431120657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_9
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1389
+        width: 17
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3914cc7796a5074396405249f548399
+      internalID: -1690373211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_12
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 1315
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d867e1253551b44fafe488660eed136
+      internalID: 1307627773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_13
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 1309
+        width: 36
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db40645d3c2c0fb438427dc6df7dc7be
+      internalID: 496248352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_14
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 1299
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe213c8b694096d4890d8697e51fcf47
+      internalID: 1026730315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_15
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1234
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef43ca67bb3911b4caa3a9cd1a391494
+      internalID: -1435365200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_16
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 1281
+        width: 42
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7b2721c1725c14fb874778921f774b
+      internalID: 1105525105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_17
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 1281
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae1d129d9be48146bd964edf9a6a81f
+      internalID: -1684576540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_18
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1277
+        width: 20
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b807e6d62cd3b804e9ad8afc37c7ce21
+      internalID: -1103893896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_19
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 1253
+        width: 37
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86b59bedbccd384691e4099204d3174
+      internalID: -1665752270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_20
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 1019
+        width: 305
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c69060318dc42e458d5f62d42410312
+      internalID: -5313909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_21
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 1249
+        width: 19
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf65d2619be0cf4a8fea08dbc677f33
+      internalID: 1972446881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_22
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 1243
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd15763e9da4e0459cab108e0fa2ccc
+      internalID: -1825603159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_23
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 1235
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0974fba40a4f6694aab8bcabd04254ba
+      internalID: 584761311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_24
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1194
+        width: 46
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f2cc6506713504e83a9b6185577e56
+      internalID: -1657857533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_25
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 1225
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca7beadba11cb74784a456b04d0f7e3
+      internalID: 1761260338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_26
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1172
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900e25ecf6e7bb14f9fdf4f43e9ec5e0
+      internalID: 678625418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_27
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 1173
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cce75eb27756b944941430106a84d82
+      internalID: -897206260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_28
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 1182
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03c06b0ce94c1b459fa7756e8fcaced
+      internalID: -1150751606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_30
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 1174
+        width: 34
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 705db48f23d1f364db7c612738a44f41
+      internalID: -322921141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_33
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 1177
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc1bfb3875ecd4408fb4704537d11d2
+      internalID: -808921539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_35
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 1168
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f6af8cce08b804ea7efae1298a3c98
+      internalID: -1736573989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_36
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 1159
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020b7178a9d1011498a27d5dcc68cf41
+      internalID: -955398285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_37
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 1164
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c653a80189d33804883713f15478c051
+      internalID: -2024313047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_38
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 1180
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4bb279d0d6fdca419277c75006670a0
+      internalID: 1777164826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_39
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 1190
+        width: 24
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6f6acec56a7634aae1828c4f137a15
+      internalID: -449292289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_40
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 1185
+        width: 18
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f983883c60f27d84abe3df5e2c11bf36
+      internalID: 1301871341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_41
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 1183
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b1e472fc8e4714f845427b13e0aa8e
+      internalID: -854907268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_44
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 1188
+        width: 19
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5cf312afdabcd9439b0f9c44f84b4e2
+      internalID: -1336159689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_48
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 1154
+        width: 63
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14790c8d14ffefa4e85871d92b034e9e
+      internalID: -1479520552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_49
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 1155
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e27bf66afc681b4d833682a3853bf84
+      internalID: 1662867152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_50
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 1139
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057c00877d988a64da3cab164e7c7be5
+      internalID: 1734655834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_51
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 1140
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42ca6e33e9be5c46a74b0c8cba8b15c
+      internalID: -918391758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_52
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 1128
+        width: 60
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00f850b5ade4324eb29e46381822050
+      internalID: -1453151571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_53
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 1129
+        width: 29
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143d84bdf46b9de44aa9cb2d02edc793
+      internalID: -854059514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_54
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 617
+        width: 493
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3fe96736d0ea1489110b12fbbaef33
+      internalID: 1068841495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_55
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 738
+        width: 391
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9026e19a941e3e4d9a9fe85701b2299
+      internalID: -694318257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_56
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 836
+        width: 436
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb81845375b28a04b990ecc7c0860040
+      internalID: -661342750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: file-20190702-126350-12laui5_57
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 190
+        width: 968
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50cf26e5359ca046a7c9713931cbe2c
+      internalID: 1986424382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      file-20190702-126350-12laui5_0: -1767046225
+      file-20190702-126350-12laui5_1: 1835260524
+      file-20190702-126350-12laui5_10: -858732441
+      file-20190702-126350-12laui5_11: -2086288170
+      file-20190702-126350-12laui5_12: 1307627773
+      file-20190702-126350-12laui5_13: 496248352
+      file-20190702-126350-12laui5_14: 1026730315
+      file-20190702-126350-12laui5_15: -1435365200
+      file-20190702-126350-12laui5_16: 1105525105
+      file-20190702-126350-12laui5_17: -1684576540
+      file-20190702-126350-12laui5_18: -1103893896
+      file-20190702-126350-12laui5_19: -1665752270
+      file-20190702-126350-12laui5_2: -1621657103
+      file-20190702-126350-12laui5_20: -5313909
+      file-20190702-126350-12laui5_21: 1972446881
+      file-20190702-126350-12laui5_22: -1825603159
+      file-20190702-126350-12laui5_23: 584761311
+      file-20190702-126350-12laui5_24: -1657857533
+      file-20190702-126350-12laui5_25: 1761260338
+      file-20190702-126350-12laui5_26: 678625418
+      file-20190702-126350-12laui5_27: -897206260
+      file-20190702-126350-12laui5_28: -1150751606
+      file-20190702-126350-12laui5_29: -2028410221
+      file-20190702-126350-12laui5_3: 691846594
+      file-20190702-126350-12laui5_30: -322921141
+      file-20190702-126350-12laui5_31: -2141912085
+      file-20190702-126350-12laui5_32: -255747022
+      file-20190702-126350-12laui5_33: -808921539
+      file-20190702-126350-12laui5_34: -1528391391
+      file-20190702-126350-12laui5_35: -1736573989
+      file-20190702-126350-12laui5_36: -955398285
+      file-20190702-126350-12laui5_37: -2024313047
+      file-20190702-126350-12laui5_38: 1777164826
+      file-20190702-126350-12laui5_39: -449292289
+      file-20190702-126350-12laui5_4: 1055296084
+      file-20190702-126350-12laui5_40: 1301871341
+      file-20190702-126350-12laui5_41: -854907268
+      file-20190702-126350-12laui5_42: 466631275
+      file-20190702-126350-12laui5_43: -416769987
+      file-20190702-126350-12laui5_44: -1336159689
+      file-20190702-126350-12laui5_45: 552151103
+      file-20190702-126350-12laui5_46: 1043975527
+      file-20190702-126350-12laui5_47: -196388075
+      file-20190702-126350-12laui5_48: -1479520552
+      file-20190702-126350-12laui5_49: 1662867152
+      file-20190702-126350-12laui5_5: -939801886
+      file-20190702-126350-12laui5_50: 1734655834
+      file-20190702-126350-12laui5_51: -918391758
+      file-20190702-126350-12laui5_52: -1453151571
+      file-20190702-126350-12laui5_53: -854059514
+      file-20190702-126350-12laui5_54: 1068841495
+      file-20190702-126350-12laui5_55: -694318257
+      file-20190702-126350-12laui5_56: -661342750
+      file-20190702-126350-12laui5_57: 1986424382
+      file-20190702-126350-12laui5_6: 1431120657
+      file-20190702-126350-12laui5_7: 162867241
+      file-20190702-126350-12laui5_8: 952004211
+      file-20190702-126350-12laui5_9: -1690373211
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
