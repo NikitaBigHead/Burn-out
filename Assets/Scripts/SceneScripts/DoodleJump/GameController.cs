@@ -19,6 +19,11 @@ public class GameController : MonoBehaviour
     private float startSpawnPostionPlatforms = -1f;
     private void Awake()
     {
+#if DEBUG
+        GameObject.FindWithTag("Debug").gameObject.SetActive(true);
+#else
+    GameObject.FindWithTag("Debug").gameObject.SetActive(false);
+#endif
 
 
         for(int i = 0; i < countPlatforms; i++)
