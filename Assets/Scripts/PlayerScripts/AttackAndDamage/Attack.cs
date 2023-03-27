@@ -53,7 +53,7 @@ public class Attack : MonoBehaviour
             spriteRendererPan.sortingOrder = 4;
         }
 
-        if(Input.GetMouseButtonDown(0) && isCanAttack)
+        if((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && isCanAttack)
         {
             
             isAttacked = true;
