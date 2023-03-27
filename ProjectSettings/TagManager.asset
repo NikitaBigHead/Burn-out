@@ -16,6 +16,7 @@ TagManager:
   - Game
   - Body
   - Pan
+  - Debug
   layers:
   - Default
   - TransparentFX
