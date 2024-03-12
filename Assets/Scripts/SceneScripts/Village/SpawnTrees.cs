@@ -11,6 +11,15 @@ public class SpawnTrees : MonoBehaviour
 
     private void Start()
     {
+        STrees();
+    }
+
+    [ContextMenu("Spawn Trees")]
+    /// <summary>
+    /// Спавн деревеьев вокруг деревни
+    /// </summary>
+    public void STrees()
+    {
         tree = new GameObject("tree");
         tree.AddComponent<SpriteRenderer>();
         GenerateTrees(new Vector2(1f, 42f), new Vector2(-26f, -18), new Vector2(1.1f, 1.7f));

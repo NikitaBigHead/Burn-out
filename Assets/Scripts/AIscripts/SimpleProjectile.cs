@@ -25,6 +25,20 @@ public class SimpleProjectile : MonoBehaviour
 
     }
 
+    public void Launch(float speed, float size, float range, Vector2 direction, float damage)
+    {
+        this.speed = speed;
+        this.size = size;
+        transform.localScale = new Vector3(size, size, 1.0f);
+        this.cashRange = range;
+        this.range = range;
+        this.direction = direction;
+        this.damage = damage;
+
+        StartCoroutine(flight());
+
+    }
+
     IEnumerator flight()
     {
         while(range >= 0f)

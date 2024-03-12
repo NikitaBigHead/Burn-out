@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 52984683297b2f64c840c8ce5657849f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - icon: {instanceID: 0}
+  - orbPrefab: {fileID: 6395010560670205809, guid: 7bfa0ffba8b03de4d8b863ce745594ef, type: 3}
+  - controller: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

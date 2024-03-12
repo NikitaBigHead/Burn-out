@@ -130,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
            
         }
         rb.MovePosition(rb.position + direction.normalized*speed);
+
           
     }
     private void resetSound()

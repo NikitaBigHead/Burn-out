@@ -17,6 +17,8 @@ TagManager:
   - Body
   - Pan
   - Debug
+  - VisionBlocker
+  - Entity
   layers:
   - Default
   - TransparentFX

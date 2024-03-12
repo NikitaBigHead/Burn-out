@@ -20,9 +20,9 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
 #if DEBUG
-        GameObject.FindWithTag("Debug").gameObject.SetActive(true);
+        GameObject.FindWithTag("Debug")?.gameObject.SetActive(true);
 #else
-    GameObject.FindWithTag("Debug").gameObject.SetActive(false);
+    GameObject.FindWithTag("Debug")?.gameObject.SetActive(false);
 #endif
 
 
